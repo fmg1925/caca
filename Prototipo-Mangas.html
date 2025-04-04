@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiwiMangasUwU</title>
+    <style>
+        body
+        {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        .menu
+        {
+            background-color: darkmagenta;
+            height: 60;
+            
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+        .logo
+        {
+            color: black;
+            padding-left: 15px;
+        }
+        .LogoPoto
+        {
+            background-image: url('https://wallpapers.com/images/hd/trunks-dragon-ball-z-41ffeczmfgbq08xy.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat:no-repeat;
+            display: inline-block;
+        }
+        .menu ul
+        {
+            list-style: none;
+            display: flex;
+        }
+        .menu ul li
+        {
+            padding: 10px 25px;
+            position: relative;
+        }
+        .menu ul li  a
+        {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.4s;
+        }
+        .menu ul li  a:hover
+        {
+            color: blue;
+ 
+        }
+        .Submenu
+        {
+            display: none;
+        }
+        .menu ul li:hover .Submenu
+        {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: darkmagenta;
+            width: 150px;
+        }
+        .Submenu ul
+        {
+            display: block;
+            margin: 0;
+            padding: 0;
+            margin-top: 15px;
+        }
+        .Submenu ul li
+        {
+            width: 100%;
+            margin: 5px;
+            
+            
+           
+        }
+        .Submenu ul li a {
+            color: white;
+            text-decoration: none;
+            display: block; /* Para que el enlace ocupe todo el espacio */
+            font-size: 15px;
+            transition: all 0.4s;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="menu">
+        <div class="LogoPoto">
+            
+            <h1 class="logo">KiwiMangas UwU</h1>
+        </div>
+        
+
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li>
+                <a href="#">Categorias</i></a>
+
+                <div class="Submenu">
+                    <ul>
+                        <li><a href="#">Populares</a></li>
+                        <li><a href="#">Accion</a></li>
+                        <li><a href="#">Comedia</a></li>
+                        <li><a href="#">Romance</a></li>
+                        <li><a href="#">Aventura</a></li>
+                        <li><a href="#">Isekai</a></li>
+                        <li><a href="#">En Emision</a></li>
+                        <li><a href="#">Finalizados</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#">Biblioteca</a></li>
+            <li><a href="#">Ayuda</a></li>
+        </ul>
+    </div>
+</body>
+</html>
