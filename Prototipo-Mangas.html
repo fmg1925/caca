@@ -12,6 +12,7 @@
             padding: 0;
             font-family: sans-serif;
             box-sizing: border-box;
+            background-color: pink;
         }
         .menu
         {
@@ -93,17 +94,50 @@
             font-size: 15px;
             transition: all 0.4s;
         }
+        .Poto
+        {
+            position: relative;
+            
+        }
+        .Poto img
+        {
+            width: 560px;
+            height: 250px;
+            margin: 5px;
+            border-radius: 15px;
+            
+        }
+        .contenedorImagenes
+        {
+            position: relative;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center; /* Centra las imágenes */
+            flex-wrap: wrap; /* Permite que las imágenes se envuelvan */
+            margin: 5px auto;
+            gap: 5px; /* Espacio entre las imágenes */
+            
+        }
+        .Poto .Titulo
+        {
+            position: absolute;
+            left: 25px;
+            top: 15px;
+            z-index: 99;
+            color: white;
+            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
     </style>
     
 </head>
 <body>
-    <div class="menu">
+    <header class="menu">
         <div class="LogoPoto">
             
             <h1 class="logo">KiwiMangas UwU</h1>
         </div>
-        
-
         <ul>
             <li><a href="#">Inicio</a></li>
             <li>
@@ -125,6 +159,26 @@
             <li><a href="#">Biblioteca</a></li>
             <li><a href="#">Ayuda</a></li>
         </ul>
-    </div>
+    </header>
+    <main>
+        <div class="contenedorImagenes">
+            <div class="Poto">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHfz13bXceGVN-pF5clN1F8VOyliDaY0oszbjyKT0utdU47awlgrdwtw0rC2C2wK1Q_mlvax6BMZ7YxXZs7psAHTtiSwu3j1vUGsu5wCx0va3MXB1vLCo4SdN33Fw-hM40qYXAi10lsgY/s1600/punpun.png" alt="">
+                <p class="Titulo">Oyasumin Punpun</p>
+            </div>
+            <div class="Poto">
+                <img src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2022/07/07/16572060638517.jpg" alt="">
+                <p class="Titulo">Berserk</p>
+            </div>
+            <div class="Poto">
+                <img src="https://otakucreativa.wordpress.com/wp-content/uploads/2017/04/nana5.jpg?w=610&h=305" alt="">
+                <p class="Titulo">Nana</p>
+            </div>
+            <div class="Poto">
+                <img src="https://i0.wp.com/elpalomitron.com/wp-content/uploads/2020/10/Resena-de-Chainsaw-Man-destacada-El-Palomitron.jpg?resize=1000%2C600&ssl=1" alt="">
+                <p class="Titulo">MotoSierra</p>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
