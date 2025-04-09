@@ -13,6 +13,7 @@
             font-family: sans-serif;
             box-sizing: border-box;
             background-color: pink;
+            
         }
         .menu
         {
@@ -131,6 +132,61 @@
             font-size: 20px;
             background-color: rgba(0, 0, 0, 0.6);
         }
+        footer
+        {
+            position:static;
+            width: 100%;
+            bottom: 0;
+            height: fit-content;
+            margin-top: 40px;
+            background-color: #9a00ae;
+            
+        }
+        
+        .ContainerContacto
+        {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px ;
+        }
+        .FooterColumna
+        {
+            padding: 0 auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .FooterColumna a
+        {
+            text-decoration: none;
+            color: white;
+            text-shadow: 0 0 8px rgb(0, 255, 251);
+            
+        }
+        .FooterColumna h4
+        {
+            text-decoration: none;
+            color: white;
+            text-shadow: 0 0 8px rgb(36, 1, 1);
+            
+        }
+        .FooterColumna img
+        {
+            width: 190px;
+            
+        }
+        
+        @media only screen and (max-width: 1000px)
+        {
+           
+            .Poto img
+            {
+                width: 350px;
+                height: 150px;
+                margin: 5px;
+                border-radius: 15px;
+            
+            }
+        }
 
     </style>
     
@@ -182,6 +238,36 @@
                 <p class="Titulo">MotoSierra</p>
             </div>
         </div>
+        
+        
     </main>
+    <footer>
+        <div class="ContainerContacto">
+            <div class="FooterColumna">
+                <h4>Informacion</h4>
+                <p><a href="#">Quienes Somos?</a></p>
+                <p><a href="#">Tiendas Afiliadas</a></p>
+                <p><a href="#">Secretito</a></p>
+
+            </div>
+            <div class="FooterColumna">
+                <h4>Servicio al Cliente</h4>
+                <p><a href="#">Politica de Devoluciones</a></p>
+                <p><a href="#">Terminos y condiciones</a></p>
+                <p><a href="#">Condiciones GiftCard</a></p>
+            </div>
+            <div class="FooterColumna">
+                <h4>Contactanos</h4>
+                <p><a href="#">+56948596543</a></p>
+                <p><a href="#">@KiwiMangas</a></p>
+                <p><a href="#">KiwiMangasUwU777@gmail.com</a></p>
+                <p><a href="#">Atencion 24/7</a></p>
+            </div>
+            <div class="FooterColumna">
+                <h4>Potito logo</h4>
+                <img src="https://preview.redd.it/ugsj07543f8a1.jpg?width=1080&crop=smart&auto=webp&s=3279bef84fc6b840ca1f953f8c52015006097104" alt="">
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
