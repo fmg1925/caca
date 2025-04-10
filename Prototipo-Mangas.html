@@ -1,80 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <!-- Incluye Font Awesome desde el CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KiwiMangasUwU</title>
+    <title>KiwiMangas</title>
     <style>
-        body
-        {
+        /* Estilo general del cuerpo */
+        body {
             margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            box-sizing: border-box;
-            background-color: pink;
-            
+            font-family: 'Arial', sans-serif;
+            background-color: blanco; /* Color de fondo */
+            text-align: center; /* Centra el contenido */
         }
-        .menu
-        {
-            background-color: darkmagenta;
-            height: 60;
-            
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            
-            
+
+        /* Contenedor del logo */
+        .logo-container {
+            margin: 10px 0;
+            height: fit-content;
         }
-        .logo
-        {
-            color: black;
-            padding-left: 15px;
+
+        .logo-container img {
+            height: 100px; /* Ajusta el tamaño según sea necesario */
         }
-        .LogoPoto
-        {
-            background-image: url('https://wallpapers.com/images/hd/trunks-dragon-ball-z-41ffeczmfgbq08xy.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat:no-repeat;
-            display: inline-block;
+
+        /* Barra de navegación */
+        .menu {
+            background-color: rgba(255, 232, 251); /* fondo */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 10px 0;
         }
-        .menu ul
-        {
+
+        .menu ul {
             list-style: none;
             display: flex;
+            justify-content: center; /* Centra los elementos del menú */
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            
+            
         }
-        .menu ul li
-        {
+
+        .menu ul li {
             padding: 10px 25px;
             position: relative;
             z-index: 99999;
         }
-        .menu ul li  a
-        {
-            color: white;
+
+        .menu ul li a {
             text-decoration: none;
-            font-size: 15px;
+            color: rgba(255, 109, 228 ); /* Color de texto similar al del sitio de referencia */
+            font-weight: bold;
+            padding: 15px 0;
+            display: block;
             transition: all 0.4s;
-            
         }
-        .menu ul li  a:hover
-        {
-            color: blue;
- 
+
+        .menu ul li a:hover {
+            color: rgba(147, 0, 255); /* Color al pasar el mouse, ajusta según tu paleta */
         }
+
         .Submenu
         {
             display: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            min-width: fit-content; /* ancho más agradable */
+            z-index: 999;
         }
+
         .menu ul li:hover .Submenu
         {
             display: block;
             position: absolute;
             left: 0;
-            top: 100%;
-            background-color: darkmagenta;
-            width: 150px;
+            
+            background-color: rgba(255, 232, 251 );
+            width: fit-content;
         }
         .Submenu ul
         {
@@ -85,32 +89,75 @@
         }
         .Submenu ul li
         {
-            width: 100%;
-            margin: 5px;
+            margin: 10px 0;
+            position: relative;
             
             
            
         }
         .Submenu ul li a {
-            color: white;
+            color: rgba(255, 109, 228 );
             text-decoration: none;
-            display: block; /* Para que el enlace ocupe todo el espacio */
-            font-size: 15px;
+            font-weight: bold;
+            font-size: 12px;
             transition: all 0.4s;
+            padding: 10px;
         }
-        .Poto
+
+        /* Efecto de cambio de color y subrayado en hover */
+        .Submenu ul li a:hover {
+            color: #f1c40f; /* Color amarillo pálido */
+            background-color: #8e44ad; /* Fondo morado para hover */
+        }
+
+        /* Línea de separación debajo de cada enlace */
+        .Submenu ul li a:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #f1c40f; /* Línea amarilla */
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Mostrar la línea al pasar el mouse */
+        .Submenu ul li a:hover:before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .mangafoto
         {
             position: relative;
             
         }
-        .Poto img
+        .mangafoto img
         {
-            width: 560px;
-            height: 250px;
+            width: 500px;
+            height: 200px;
             margin: 5px;
             border-radius: 15px;
-            
+            object-fit: cover; /* Asegura que la imagen se recorte bien */
         }
+
+        .mangafoto img::after 
+        {
+            content: "";
+            position: absolute;
+            top: 50%; /* Empieza desde la mitad de la imagen */
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(255, 255, 255, 0.5); /* Fondo blanco semitransparente */
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            z-index: 1;
+        }
+
         .contenedorImagenes
         {
             position: relative;
@@ -122,16 +169,20 @@
             gap: 5px; /* Espacio entre las imágenes */
             
         }
-        .Poto .Titulo
+        .mangafoto .Titulo
         {
             position: absolute;
             left: 25px;
             top: 15px;
             z-index: 99;
             color: white;
-            font-size: 20px;
-            background-color: rgba(0, 0, 0, 0.6);
+            font-size: 20px; /* Título en tamaño grande */
+            font-weight: bold;
+            background-color: rgba(255, 105, 180, 0.6); /* Fondo rosado con opacidad */
+            padding: 5px 10px;
+            border-radius: 5px;
         }
+
         footer
         {
             position:static;
@@ -139,7 +190,8 @@
             bottom: 0;
             height: fit-content;
             margin-top: 40px;
-            background-color: #9a00ae;
+            background-color:rgba(255, 232, 251); /* fondo */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             
         }
         
@@ -147,7 +199,7 @@
         {
             display: flex;
             justify-content: space-between;
-            padding: 15px ;
+            padding: 5px ;
         }
         .FooterColumna
         {
@@ -158,96 +210,123 @@
         .FooterColumna a
         {
             text-decoration: none;
-            color: white;
-            text-shadow: 0 0 8px rgb(0, 255, 251);
+            color: rgba(255, 109, 228 );
+            
             
         }
         .FooterColumna h4
         {
             text-decoration: none;
-            color: white;
-            text-shadow: 0 0 8px rgb(36, 1, 1);
+            color: #8e44ad;
+            
             
         }
         .FooterColumna img
         {
-            width: 190px;
-            
+            width: 200px;
+            margin: 50px auto;
+   
+        }
+        .Social p
+        {
+            padding: 0 auto;
+            margin: 8px auto;
         }
         
         @media only screen and (max-width: 1000px)
         {
            
-            .Poto img
+            .mangafoto img
             {
                 width: 350px;
                 height: 150px;
-                margin: 5px;
-                border-radius: 15px;
+                
             
             }
+            .mangafoto .Titulo
+        {
+            font-size: 15px; /* Título en tamaño grande */
+        }
         }
 
     </style>
     
 </head>
 <body>
+
+    <!-- Contenedor del logo -->
+    <div class="logo-container">
+        <a href="#">
+            <img src="img/Logo.png" alt="Logo de la página de mangas">
+        </a>
+    </div>
+
+    <!-- Barra de navegación -->
+    
     <header class="menu">
-        <div class="LogoPoto">
-            
-            <h1 class="logo">KiwiMangas UwU</h1>
-        </div>
         <ul>
-            <li><a href="#">Inicio</a></li>
+            <li><a href="#">INICIO</a></li>
             <li>
-                <a href="#">Categorias</i></a>
+                <a href="#">CATEGORIAS</i></a>
 
                 <div class="Submenu">
                     <ul>
-                        <li><a href="#">Populares</a></li>
-                        <li><a href="#">Accion</a></li>
-                        <li><a href="#">Comedia</a></li>
-                        <li><a href="#">Romance</a></li>
-                        <li><a href="#">Aventura</a></li>
-                        <li><a href="#">Isekai</a></li>
-                        <li><a href="#">En Emision</a></li>
-                        <li><a href="#">Finalizados</a></li>
+                        <li><a href="#">Populares ✨</a></li>
+                        <li><a href="#">Acción ✨</a></li>
+                        <li><a href="#">Comedia ✨</a></li>
+                        <li><a href="#">Romance ✨</a></li>
+                        <li><a href="#">Aventura ✨</a></li>
+                        <li><a href="#">Isekai ✨</a></li>
+                        <li><a href="#">En emisión ✨</a></li>
+                        <li><a href="#">Finalizados ✨</a></li>
+                        <li><a href="#">Favoritos del Público 🩵</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="#">Biblioteca</a></li>
-            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">LO MAS VENDIDO</a></li>
+            <li><a href="#">BIBLIOTECA</a></li>
+            <li><a href="#">AYUDA</a></li>
         </ul>
     </header>
     <main>
         <div class="contenedorImagenes">
-            <div class="Poto">
+            <div class="mangafoto">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHfz13bXceGVN-pF5clN1F8VOyliDaY0oszbjyKT0utdU47awlgrdwtw0rC2C2wK1Q_mlvax6BMZ7YxXZs7psAHTtiSwu3j1vUGsu5wCx0va3MXB1vLCo4SdN33Fw-hM40qYXAi10lsgY/s1600/punpun.png" alt="">
                 <p class="Titulo">Oyasumin Punpun</p>
             </div>
-            <div class="Poto">
-                <img src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2022/07/07/16572060638517.jpg" alt="">
+            <div class="mangafoto">
+                <img src="https://cdn.myanimelist.net/images/about_me/main_visual/18524224-de15dfc4-330e-4944-afd3-959eecfcec03.png?t=1734909623" alt="">
                 <p class="Titulo">Berserk</p>
             </div>
-            <div class="Poto">
-                <img src="https://otakucreativa.wordpress.com/wp-content/uploads/2017/04/nana5.jpg?w=610&h=305" alt="">
+            <div class="mangafoto">
+                <img src="https://areajugones.sport.es/wp-content/uploads/2025/01/nana-hiatus-manga-1.jpg" alt="">
                 <p class="Titulo">Nana</p>
             </div>
-            <div class="Poto">
+            <div class="mangafoto">
                 <img src="https://i0.wp.com/elpalomitron.com/wp-content/uploads/2020/10/Resena-de-Chainsaw-Man-destacada-El-Palomitron.jpg?resize=1000%2C600&ssl=1" alt="">
                 <p class="Titulo">MotoSierra</p>
+            </div>
+            <div class="mangafoto">
+                <img src="https://lavacajaponesa.com/wp-content/uploads/2024/10/91f6iVYeN0L._SL1500_.jpg" alt="">
+                <p class="Titulo">HunterxHunter</p>
+            </div>
+            <div class="mangafoto">
+                <img src="https://www.anmosugoi.com/wp-content/uploads/2022/08/Sousou-no-Frieren-manga-vol-9-min.jpg" alt="">
+                <p class="Titulo">Frieren</p>
             </div>
         </div>
         
         
+        
     </main>
+
     <footer>
         <div class="ContainerContacto">
             <div class="FooterColumna">
                 <h4>Informacion</h4>
                 <p><a href="#">Quienes Somos?</a></p>
                 <p><a href="#">Tiendas Afiliadas</a></p>
-                <p><a href="#">Secretito</a></p>
+                <p><a href="https://www.nyan.cat/" target="_blank">Secretito</a></p>
 
             </div>
             <div class="FooterColumna">
@@ -258,16 +337,35 @@
             </div>
             <div class="FooterColumna">
                 <h4>Contactanos</h4>
-                <p><a href="#">+56948596543</a></p>
-                <p><a href="#">@KiwiMangas</a></p>
-                <p><a href="#">KiwiMangasUwU777@gmail.com</a></p>
-                <p><a href="#">Atencion 24/7</a></p>
+                <div class="Social">
+                    <p>
+                        <a href="https://facebook.com" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook"></i> KiwiMangasUwU
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com" target="_blank" class="social-icon">
+                            <i class="fab fa-twitter"></i> Pilin
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://instagram.com/Kiwi_Mangas_UwU" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i> @KiwiMangas
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin"></i> KiwiMangas
+                        </a>
+                    </p>
+                </div>
             </div>
             <div class="FooterColumna">
-                <h4>Potito logo</h4>
-                <img src="https://preview.redd.it/ugsj07543f8a1.jpg?width=1080&crop=smart&auto=webp&s=3279bef84fc6b840ca1f953f8c52015006097104" alt="">
+                
+                <img src="img/Logo.png" alt="Logo de la página de mangas"  alt="">
             </div>
         </div>
     </footer>
 </body>
 </html>
+
