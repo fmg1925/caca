@@ -153,10 +153,27 @@ body {
     padding: 5px 10px;/* Declara el padding vertical y horizontal*/
     border-radius: 5px;/* Redondea el borde*/
 }
+/* Style del div Peo*/
+.Peo
+{
+    display: flex;/* Declara el display como flex*/
+    background-color: goldenrod;/* Declara el color de fondo*/
+    margin: 15px auto;/* Declara el margen vertical y horizontal*/
+    width: 856px;/* Declara el ancho del div*/
+    border-radius: 15px;/* Declara el redondeo del borde*/
+}
+/* Style del parrafo dentro de Peo*/
+.Peo p
+{
+    margin: 8px auto;/* Declara el margen vertical y horizontal*/
+    padding: 0 auto;/* Declara el padding vertical y horizontal*/
+    font-family: 'Pixelify Sans', sans-serif;/* Declara La fuente del texto*/
+    font-size: 30px;/* Declara el tamaño de la fuente*/
+}
 /* Style del footer*/
 footer
 {
-    position:fixed;/* Declara la posicion como fija*/
+    position:static;/* Declara la posicion como fija*/
     width: 100%;/* Declara que use todo el ancho*/
     bottom: 0;/* Declara la posicion al fondo*/
     height: fit-content;/* Declara la altura para que se ajuste al contenido*/
@@ -212,5 +229,10 @@ footer
     .mangafoto .Titulo
     {
         font-size: 15px; /*Declara el tamaño del texto*/
+    }
+    /* Style del div Peo*/
+    .Peo
+    {
+        width: 715px;/* Declara el ancho*/
     }
 }
