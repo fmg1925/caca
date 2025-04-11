@@ -20,7 +20,7 @@ body {
 .menu {
     background-color: rgba(255, 232, 251); /* Declara el color del fondo*/
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Le da una sombra*/
-    padding: 10px 0;/*Le da un padding horizontal y vertical */
+    padding: 10px 0;/*Le da un padding vertical y horizontal */
 }
 /* Style de la lista no numerada*/
 .menu ul {
@@ -93,141 +93,124 @@ body {
     color: #f1c40f; /* Declara el color de la letra*/
     background-color: #8e44ad; /* Declara el color de fondo*/
 }
-/*Style */
+/*Style de animacion*/
 .Submenu ul li a:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #f1c40f; /* Línea amarilla */
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
+    content: "";/* Declara el contenido en vacio*/
+    position: absolute;/* Declara la posicion como absoluta*/
+    bottom: 0;/* inicializa el contenido desde abajo*/
+    left: 0;/* inicializa el contenido desde la izquierda*/
+    width: 100%;/*Declara que use todo el ancho*/
+    height: 2px;/*Declara la altura maxima*/
+    background-color: #f1c40f; /*declara el color de fondo*/
+    transform: scaleX(0);/*oculta el elemento*/
+    transform-origin: bottom right;/*desplaza el item*/
+    transition: transform 0.3s ease-out;/*declara el tiempo de la animacion*/
 }
 
-/* Mostrar la línea al pasar el mouse */
+/* Style de la animacion al hacer hover*/
 .Submenu ul li a:hover:before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+    transform: scaleX(1);/*Muestra el elemento*/
+    transform-origin: bottom left;/*desplaza el item*/
 }
-
+/* Style del div manga foto*/
 .mangafoto
 {
-    position: relative;
+    position: relative;/* Declara la posicion como relativa*/
     
 }
+/* Style del la foto del div mangafoto*/
 .mangafoto img
 {
-    width: 500px;
-    height: 200px;
-    margin: 5px;
-    border-radius: 15px;
-    object-fit: cover; /* Asegura que la imagen se recorte bien */
+    width: 420px;/* Declara el ancho maximo*/
+    height: 165px;/* Declara la altura maximo*/
+    margin: 5px;/* Declara el margen*/
+    border-radius: 15px;/* Redondea el borde*/
+    object-fit: cover; /* Ajusta la imagen al contenedor*/
 }
-
-.mangafoto img::after 
-{
-    content: "";
-    position: absolute;
-    top: 50%; /* Empieza desde la mitad de la imagen */
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: rgba(255, 255, 255, 0.5); /* Fondo blanco semitransparente */
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    z-index: 1;
-}
-
+/* Style del ContenedorImagenes*/
 .contenedorImagenes
 {
-    position: relative;
-    max-width: 1200px;
-    display: flex;
-    justify-content: center; /* Centra las imágenes */
-    flex-wrap: wrap; /* Permite que las imágenes se envuelvan */
-    margin: 5px auto;
+    position: relative;/* Declara la posicion como relativa*/
+    max-width: 1200px;/* Declara el ancho maximo*/
+    display: flex;/* Declara el display como flex*/
+    justify-content: center; /* centra el contenido horizontalmente*/
+    flex-wrap: wrap; /* Permite que las imágenes se distribuyan*/
+    margin: 5px auto;/* Declara el margen vertical y horizontal*/
     gap: 5px; /* Espacio entre las imágenes */
     
 }
+/* Style del los titulos dentro de mangafoto*/
 .mangafoto .Titulo
 {
-    position: absolute;
-    left: 25px;
-    top: 15px;
-    z-index: 99;
-    color: white;
-    font-size: 20px; /* Título en tamaño grande */
-    font-weight: bold;
-    background-color: rgba(255, 105, 180, 0.6); /* Fondo rosado con opacidad */
-    padding: 5px 10px;
-    border-radius: 5px;
+    position: absolute;/* Declara la posicion como absoluta*/
+    left: 25px;/* Declara la posicion a la izquierda*/
+    top: 15px;/* Declara la posicion a la derecha*/
+    z-index: 99;/* Declara el index que tendra*/
+    color: white;/* Declara el color del texto*/
+    font-size: 20px; /* declara el tamaño del texto */
+    font-weight: bold;/* le da un relleno a la letra*/
+    background-color: rgba(255, 105, 180, 0.6); /* Declara el color de fondo */
+    padding: 5px 10px;/* Declara el padding vertical y horizontal*/
+    border-radius: 5px;/* Redondea el borde*/
 }
-
+/* Style del footer*/
 footer
 {
-    position:static;
-    width: 100%;
-    bottom: 0;
-    height: fit-content;
-    margin-top: 40px;
-    background-color:rgba(255, 232, 251); /* fondo */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    
+    position:fixed;/* Declara la posicion como fija*/
+    width: 100%;/* Declara que use todo el ancho*/
+    bottom: 0;/* Declara la posicion al fondo*/
+    height: fit-content;/* Declara la altura para que se ajuste al contenido*/
+    background-color:rgba(255, 232, 251); /* Declara el contenido del fondo */
 }
-
+/* Style del ContainerContacto*/
 .ContainerContacto
 {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px ;
+    display: flex;/* Declara el display como flex*/
+    justify-content: space-between;/* Declara el espacio entre el contenido*/
+    padding: 5px ;/* Declara el padding*/
 }
+/* Style del FooterColumna*/
 .FooterColumna
 {
-    padding: 0 auto;
-    margin: 0 auto;
-    text-align: center;
+    padding: 0 auto;/* Declara el padding vertical y horizontal*/
+    margin: 0 auto;/* Declara el margin vertical y horizontal*/
 }
+/* Style de los enlaces de FooterColumna*/
 .FooterColumna a
 {
-    text-decoration: none;
-    color: rgba(255, 109, 228 );
-    
-    
+    text-decoration: none;/* Quita la decoracion del enlace*/
+    color: rgba(255, 109, 228 );/* Declara el color del texto*/
 }
+/* Style de los h4 de FooterColumna*/
 .FooterColumna h4
 {
-    text-decoration: none;
-    color: #8e44ad;
-    
-    
+    color: #8e44ad; /* Declara el color del texto*/
 }
+/* Style de las imagenes de FooterColumna*/
 .FooterColumna img
 {
-    width: 200px;
-    margin: 50px auto;
+    width: 200px;/* Declara el ancho maximo*/
+    margin: 50px auto;/* Declara el margin vertical y horizontal*/
 
 }
+/* Style de los parrafos en el div Social*/
 .Social p
 {
-    padding: 0 auto;
-    margin: 8px auto;
+    padding: 0 auto;/* Declara el padding vertical y horizontal*/
+    margin: 8px auto;/* Declara el margin vertical y horizontal*/
 }
-
-@media only screen and (max-width: 1000px)
+/* Reglas para pantallas de un ancho maximo*/
+@media only screen and (max-width: 1024px)
 {
-   
+    /* Style del la foto del div mangafoto*/
     .mangafoto img
     {
-        width: 350px;
-        height: 150px;
-        
-    
+        width: 350px;/* Declara el ancho maximo*/
+        height: 150px;/* Declara el alto maximo*/
     }
+    /* Style de titulo dentro de mangafoto*/
     .mangafoto .Titulo
-{
-    font-size: 15px; /* Título en tamaño grande */
-}
+    {
+        font-size: 15px; /*Declara el tamaño del texto*/
+    }
 }
