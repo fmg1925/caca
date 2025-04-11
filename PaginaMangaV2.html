@@ -1,116 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Incluye Font Awesome desde el CDN -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"><!--Da acceso para usar FontAwessome -->
+<link rel="icon" href="img/Kiwi3.webp" type="image/png"><!--Declara el icono de la pagina-->
     <meta charset="UTF-8">
-    <title>KiwiMangas</title>
-    <style>
-        /* Estilo general del cuerpo */
+    <title>KiwiMangas</title><!--Titulo de la pagina-->
+    <style> /* Seccion de estilo de la pagina*/
+        
+        /* Style del body */
         body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: blanco; /* Color de fondo */
-            text-align: center; /* Centra el contenido */
+            margin: 0;/*Declara el margen en 0*/
+            font-family: 'Arial', sans-serif;/* Usa la siguiente fuente */
+            background-color: blanco; /* Declara el color de fondo en blanco*/
+            text-align: center; /* Centra el texto del contenido*/
         }
 
-        /* Contenedor del logo */
+        /* Style del contenedor del logo*/
         .logo-container {
-            margin: 10px 0;
-            height: fit-content;
+            margin: 0 auto;  /* Declara el margen en 0 a los lados y automatico verticalmente */
+            height: fit-content;  /* La altura se ajustara al tamaño usado*/
         }
-
+         /* Style de la imagen dentro del logo*/
         .logo-container img {
             height: 100px; /* Ajusta el tamaño según sea necesario */
         }
 
-        /* Barra de navegación */
+        /* Style del menu*/
         .menu {
-            background-color: rgba(255, 232, 251); /* fondo */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 10px 0;
+            background-color: rgba(255, 232, 251); /* Declara el color del fondo*/
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Le da una sombra*/
+            padding: 10px 0;/*Le da un padding horizontal y vertical */
         }
-
+        /* Style de la lista no numerada*/
         .menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center; /* Centra los elementos del menú */
-            align-items: center;
-            margin: 0;
-            padding: 0;
-            
-            
+            list-style: none;/* Le quita el estilo a la lista (•)*/
+            display:flex;/* Declara el display como un flex*/
+            justify-content: center; /* Centra los elementos horizontalmente */
+            align-items: center;/* Centra los elementos verticalmente */
+            margin: 0;/* Declara el margen en 0*/
+            padding: 0;/* Declara el padding en 0*/
         }
-
+        /* Style de la lista dentro de la lista*/
         .menu ul li {
-            padding: 10px 25px;
-            position: relative;
-            z-index: 99999;
+            padding: 10px 25px;/* Declara el padding*/
+            position: relative;/* Declara la Posicion como relativa*/
+            z-index: 99999;/* Le da un index sobre todos los elementos*/
         }
-
+        /* Style de las referencias dentro de la lista*/
         .menu ul li a {
-            text-decoration: none;
-            color: rgba(255, 109, 228 ); /* Color de texto similar al del sitio de referencia */
-            font-weight: bold;
-            padding: 15px 0;
-            display: block;
-            transition: all 0.4s;
+            text-decoration: none;/* Le quita el diseño a las referencias*/
+            color: rgba(255, 109, 228 ); /* Declara el color*/
+            font-weight: bold;/* Le da un relleno a la letra*/
+            padding: 15px 0;/* Declara el padding*/
+            display: block;/* Declara el display como un block*/
+            transition: all 0.4s;/* Declara el tiempo de la animacion*/
         }
-
+        /* Style del efecto hover de las referencias*/
         .menu ul li a:hover {
-            color: rgba(147, 0, 255); /* Color al pasar el mouse, ajusta según tu paleta */
+            color: rgba(147, 0, 255); /* Declara el color*/
         }
-
+        /* Style del submenu*/
         .Submenu
         {
-            display: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            min-width: fit-content; /* ancho más agradable */
-            z-index: 999;
+            display: none;/* Lo declara invisible*/
+            border-radius: 12px;/* Declara el redondeo de los bordes*/
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);/* Le da una sombra*/
+            min-width: fit-content; /* El ancho minimo dependera del contenido*/
+            z-index: 999;/* Le da un index sobre los elementos*/
         }
-
+        /* Style del efecto hover del submenu*/
         .menu ul li:hover .Submenu
         {
-            display: block;
-            position: absolute;
-            left: 0;
-            
-            background-color: rgba(255, 232, 251 );
-            width: fit-content;
+            display: block;/* Lo declara como bloque*/
+            position: absolute;/* Declara su posicion como absoluta*/
+            left: 0;/* Su posicion a la izquierda sera la minima*/
+            background-color: rgba(255, 232, 251 );/* Declara el color de fondo*/
+            width: fit-content;/* El ancho dependera del contenido*/
         }
+        /* Style de la lista no numerada del submenu*/
         .Submenu ul
         {
-            display: block;
-            margin: 0;
-            padding: 0;
-            margin-top: 15px;
+            display: block;/* Lo declara como bloque*/
+            margin: 0;/* Declara el margen en 0*/
+            padding: 0;/* Declara el padding en 0*/
         }
+        /* Style de la lista dentro del submenu*/
         .Submenu ul li
         {
-            margin: 10px 0;
-            position: relative;
-            
-            
-           
+            margin: 10px 0;/* Declara el margen*/
         }
+        /* Style de las referencias dentro del submenu*/
         .Submenu ul li a {
-            color: rgba(255, 109, 228 );
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 12px;
-            transition: all 0.4s;
-            padding: 10px;
+            color: rgba(255, 109, 228 );/* Declara el color de la letra*/
+            text-decoration: none;/* Quita la decoracion de referencia*/
+            font-size: 12px;/* Declara el tamaño de la letra*/
+            transition: all 0.4s;/* Declara el tiempo de la animacion*/
+            padding: 10px;/* Declara el padding*/
         }
-
-        /* Efecto de cambio de color y subrayado en hover */
+        /* Style de las referencias al pasar el mouse encima*/
         .Submenu ul li a:hover {
-            color: #f1c40f; /* Color amarillo pálido */
-            background-color: #8e44ad; /* Fondo morado para hover */
+            color: #f1c40f; /* Declara el color de la letra*/
+            background-color: #8e44ad; /* Declara el color de fondo*/
         }
-
-        /* Línea de separación debajo de cada enlace */
+        /*Style */
         .Submenu ul li a:before {
             content: "";
             position: absolute;
@@ -255,15 +248,15 @@
 <body>
 
     <!-- Contenedor del logo -->
-    <div class="logo-container">
+    <header class="logo-container">
         <a href="#">
             <img src="img/Logo.png" alt="Logo de la página de mangas">
         </a>
-    </div>
+    </header>
 
     <!-- Barra de navegación -->
     
-    <header class="menu">
+    <nav class="menu">
         <ul>
             <li><a href="#">INICIO</a></li>
             <li>
@@ -287,7 +280,7 @@
             <li><a href="#">BIBLIOTECA</a></li>
             <li><a href="#">AYUDA</a></li>
         </ul>
-    </header>
+    </nav>
     <main>
         <div class="contenedorImagenes">
             <div class="mangafoto">
