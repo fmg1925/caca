@@ -170,6 +170,65 @@ body {
     font-family: 'Pixelify Sans', sans-serif;/* Declara La fuente del texto*/
     font-size: 30px;/* Declara el tamaño de la fuente*/
 }
+.Populares
+{
+    margin: 15px auto;
+}
+/* Style del div Container*/
+.Container
+{
+    display: flex;/* Declara el display como flex*/
+    background-color: rgb(133, 2, 240);/* Declara el color de fondo*/
+    margin: 0 auto;/* Declara el margen vertical y horizontal*/
+    width: 856px;/* Declara el ancho del div*/
+    
+}
+.Container p
+{
+    margin: 8px 15px;/* Declara el margen vertical y horizontal*/
+    padding: 0 auto;/* Declara el padding vertical y horizontal*/
+    font-size: 30px;/* Declara el tamaño de la fuente*/
+}
+.ListaPopulares 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 0 auto;
+    width: 856px;
+}
+  
+.Popular 
+{
+    background-color: white;
+    border-radius: 8px;
+    padding: 8px;
+    width: 185px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 260px;
+}
+  
+.Popular img 
+{
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+}
+.Popular p 
+{
+    font-size: 12px;
+    font-weight: bold;
+    
+    margin: 15px auto;
+    text-align: center;
+}
+.Popular a 
+{
+    text-decoration: none;
+    color: inherit;
+}
 /* Style del footer*/
 footer
 {
@@ -234,5 +293,17 @@ footer
     .Peo
     {
         width: 715px;/* Declara el ancho*/
+    }
+    .Container
+    {
+        width: 715px;/* Declara el ancho*/
+    }
+    .ListaPopulares 
+    {
+        width: 715px;
+    }
+    .Popular 
+    {
+        width: 150px;
     }
 }
