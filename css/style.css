@@ -203,8 +203,9 @@ body {
 {
     background-color: white;
     border-radius: 8px;
-    padding: 8px;
-    width: 185px;
+    padding: 4px;
+    margin: 5px 0;
+    width: 150px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     height: 260px;
@@ -212,7 +213,7 @@ body {
   
 .Popular img 
 {
-    width: 100%;
+    width: 140px;
     height: 200px;
     border-radius: 4px;
 }
@@ -228,6 +229,12 @@ body {
 {
     text-decoration: none;
     color: inherit;
+}
+.Populares
+{
+    background-color: green;
+    width: fit-content;
+    
 }
 /* Style del footer*/
 footer
@@ -304,6 +311,10 @@ footer
     }
     .Popular 
     {
-        width: 150px;
+        width: 122px;
+    }
+    .Popular img
+    {
+        width: 119px;
     }
 }

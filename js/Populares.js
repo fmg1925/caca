@@ -5,7 +5,7 @@
       function cargarPopulares(page) {
         ListaPopulares.innerHTML += '<p id="cargando">Cargando...</p>';
   
-        fetch(`https://api.jikan.moe/v4/top/manga?page=${page}&limit=4`)
+        fetch(`https://api.jikan.moe/v4/top/manga?page=${page}&limit=5`)
           .then(response => response.json())
           .then(data => {
             document.getElementById('cargando')?.remove();
