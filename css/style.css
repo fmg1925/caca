@@ -321,7 +321,7 @@ footer
     }
     .Popular p 
     {
-        font-size: 15px;
+        font-size: clamp(12px, 3vw, 14px);
         width: fit-content;
         margin: 5px auto;
     }
