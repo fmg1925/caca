@@ -4,6 +4,8 @@ body {
     font-family: 'Arial', sans-serif;/* Usa la siguiente fuente */
     background-color: blanco; /* Declara el color de fondo en blanco*/
     text-align: center; /* Centra el texto del contenido*/
+    height: 100%;
+
 }
 
 /* Style del contenedor del logo*/
@@ -221,7 +223,6 @@ body {
 {
     font-size: 12px;
     font-weight: bold;
-    
     margin: 15px auto;
     text-align: center;
 }
@@ -239,6 +240,7 @@ body {
 /* Style del footer*/
 footer
 {
+
     position:static;/* Declara la posicion como fija*/
     width: 100%;/* Declara que use todo el ancho*/
     bottom: 0;/* Declara la posicion al fondo*/
@@ -283,7 +285,7 @@ footer
     margin: 8px auto;/* Declara el margin vertical y horizontal*/
 }
 /* Reglas para pantallas de un ancho maximo*/
-@media only screen and (max-width: 1024px)
+@media only screen and (max-width: 1000px)
 {
     /* Style del la foto del div mangafoto*/
     .mangafoto img
@@ -294,7 +296,7 @@ footer
     /* Style de titulo dentro de mangafoto*/
     .mangafoto .Titulo
     {
-        font-size: 15px; /*Declara el tamaño del texto*/
+        font-size: 20px; /*Declara el tamaño del texto*/
     }
     /* Style del div Peo*/
     .Peo
@@ -316,5 +318,15 @@ footer
     .Popular img
     {
         width: 119px;
+    }
+    .Popular p 
+    {
+        font-size: 15px;
+        width: fit-content;
+        margin: 5px auto;
+    }
+    .FooterColumna
+    {
+        font-size: 16px;
     }
 }
