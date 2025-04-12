@@ -226,6 +226,20 @@ body {
     margin: 15px auto;
     text-align: center;
 }
+.Popular .Seguidores
+{
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px auto;
+    text-align: center;
+}
+.Popular .Nombre
+{
+    font-size: 15px;
+    
+    margin: 1px auto;
+    text-align: center;
+}
 .Popular a 
 {
     text-decoration: none;
@@ -324,6 +338,20 @@ footer
         font-size: clamp(12px, 3vw, 14px);
         width: fit-content;
         margin: 5px auto;
+    }
+    .Popular .Seguidores
+    {
+        font-size: 10px;
+
+        margin: 5px auto;
+
+    }
+    .Popular .Nombre
+    {
+        font-size: 12px;
+        
+        margin: 5px auto;
+        text-align: center;
     }
     .FooterColumna
     {

@@ -1,8 +1,9 @@
     document.addEventListener("DOMContentLoaded", function () {
-      const ListaPopulares = document.querySelector('.ListaPopulares');
+      const ListaPopulares = document.querySelector('.ListaPopulares.mangas');
+      const PopularesPersonaje = document.querySelector('.ListaPopulares.personajes');
       let currentPage = 1;
   
-      function cargarPopulares(page) {
+      function cargarPopularesManga(page) {
         ListaPopulares.innerHTML += '<p id="cargando">Cargando...</p>';
   
         fetch(`https://api.jikan.moe/v4/top/manga?page=${page}&limit=5`)
@@ -24,10 +25,7 @@
   
                 ListaPopulares.appendChild(Popular);
               });
-            } else {
-              ListaPopulares.innerHTML += '<p>No hay más mangas para mostrar.</p>';
-              verMasBtn.disabled = true;
-            }
+            } 
           })
           .catch(error => {
             console.error('Error:', error);
@@ -35,5 +33,40 @@
           });
       }
       // Cargar la primera página al iniciar
-      cargarPopulares(currentPage);
-    });
+      cargarPopularesManga(currentPage);
+
+
+    //Funcion cargar personajes populares
+    function cargarPersonajes(page) {
+      PopularesPersonaje.innerHTML += '<p id="cargandos">Cargando...</p>';
+
+      fetch(`https://api.jikan.moe/v4/top/characters?page=${page}&limit=5`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('cargandos')?.remove();
+
+          if (data.data && data.data.length > 0) {
+            data.data.forEach(character => {
+              const personajes = document.createElement('div');
+              personajes.classList.add('Popular');
+
+              personajes.innerHTML = `
+                  <a href="${character.url}" target="_blank">
+                  <img src="${character.images.jpg.image_url}" alt="" />
+                  <p class="Nombre">${character.name}</p>
+                  </a>
+                  <p class="Seguidores">Gente a sus pies #${character.favorites}</p>
+              `;
+
+              PopularesPersonaje.appendChild(personajes);
+            });
+          } 
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          ListaPopulares.innerHTML += '<p>Error al cargar los mangas populares.</p>';
+        });
+    }
+    // Cargar la primera página al iniciar
+    cargarPersonajes(currentPage);
+  });
