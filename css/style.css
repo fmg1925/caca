@@ -4,7 +4,7 @@ body {
     font-family: 'Arial', sans-serif;/* Usa la siguiente fuente */
     background-color: blanco; /* Declara el color de fondo en blanco*/
     text-align: center; /* Centra el texto del contenido*/
-    height: 100%;
+    
 
 }
 
@@ -301,11 +301,21 @@ footer
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)
 {
+    .Peo
+    {
+        margin: 15px auto;/* Declara el margen vertical y horizontal*/
+        width: 900px;/* Declara el ancho del div*/
+    }
+    /* Style del parrafo dentro de Peo*/
+    .Peo p
+    {
+        font-size: 38px;/* Declara el tamaño de la fuente*/
+    }
     /* Style del la foto del div mangafoto*/
     .mangafoto img
     {
-        width: 350px;/* Declara el ancho maximo*/
-        height: 150px;/* Declara el alto maximo*/
+        width: 440px;/* Declara el ancho maximo*/
+        height: 140px;/* Declara el alto maximo*/
     }
     /* Style de titulo dentro de mangafoto*/
     .mangafoto .Titulo
@@ -313,44 +323,46 @@ footer
         font-size: 20px; /*Declara el tamaño del texto*/
     }
     /* Style del div Peo*/
-    .Peo
-    {
-        width: 715px;/* Declara el ancho*/
-    }
+    
     .Container
     {
-        width: 715px;/* Declara el ancho*/
+        width: 900px;/* Declara el ancho*/
     }
     .ListaPopulares 
     {
-        width: 715px;
+        width: 900px;
+        
     }
     .Popular 
     {
-        width: 122px;
+        width: 150px;
+        height: 270px;
+        margin: 8px auto;
     }
     .Popular img
     {
-        width: 119px;
+        width: 135px;
     }
     .Popular p 
     {
-        font-size: clamp(12px, 3vw, 14px);
+        font-size: clamp(14px, 3vw, 17px);
         width: fit-content;
         margin: 5px auto;
+        font-weight: bold;
     }
     .Popular .Seguidores
     {
-        font-size: 10px;
+        font-size: clamp(14px, 3vw, 17px);
 
-        margin: 5px auto;
+        margin: 2px auto;
 
     }
     .Popular .Nombre
     {
-        font-size: 12px;
+        font-size: 14px;
+        font-style: bold;
         
-        margin: 5px auto;
+        margin: 3px auto;
         text-align: center;
     }
     .FooterColumna
