@@ -194,19 +194,21 @@ body {
 .ListaPopulares 
 {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    overflow-x: auto;
+    gap: 8px;
+    justify-content: flex-start;
     margin: 0 auto;
     width: 856px;
+    box-sizing: border-box;
+    padding: 0 10px;
 }
   
 .Popular 
 {
     background-color: white;
     border-radius: 8px;
-    padding: 4px;
-    margin: 5px 0;
+    padding: 3px;
+    margin: 3px 0;
     width: 150px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -235,7 +237,7 @@ body {
 }
 .Popular .Nombre
 {
-    font-size: 15px;
+    font-size: 13px;
     
     margin: 1px auto;
     text-align: center;
@@ -331,7 +333,8 @@ footer
     .ListaPopulares 
     {
         width: 900px;
-        
+        padding: 0 10px;
+        gap: 8px;
     }
     .Popular 
     {
@@ -352,7 +355,7 @@ footer
     }
     .Popular .Seguidores
     {
-        font-size: clamp(14px, 3vw, 17px);
+        font-size: clamp(13px, 3vw, 14px);
 
         margin: 2px auto;
 

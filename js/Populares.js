@@ -6,7 +6,7 @@
       function cargarPopularesManga(page) {
         ListaPopulares.innerHTML += '<p id="cargando">Cargando...</p>';
   
-        fetch(`https://api.jikan.moe/v4/top/manga?page=${page}&limit=5`)
+        fetch(`https://api.jikan.moe/v4/top/manga?page=${page}&limit=12`)
           .then(response => response.json())
           .then(data => {
             document.getElementById('cargando')?.remove();
@@ -21,6 +21,7 @@
                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                     <p>${manga.title}</p>
                     </a>
+
                 `;
   
                 ListaPopulares.appendChild(Popular);
@@ -33,14 +34,14 @@
           });
       }
       // Cargar la primera página al iniciar
-      cargarPopularesManga(currentPage);
+  
 
 
     //Funcion cargar personajes populares
     function cargarPersonajes(page) {
       PopularesPersonaje.innerHTML += '<p id="cargandos">Cargando...</p>';
 
-      fetch(`https://api.jikan.moe/v4/top/characters?page=${page}&limit=5`)
+      fetch(`https://api.jikan.moe/v4/top/characters?page=${page}&limit=12`)
         .then(response => response.json())
         .then(data => {
           document.getElementById('cargandos')?.remove();
@@ -69,4 +70,5 @@
     }
     // Cargar la primera página al iniciar
     cargarPersonajes(currentPage);
+    cargarPopularesManga(currentPage);
   });
