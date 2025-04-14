@@ -114,7 +114,45 @@ body {
     transform: scaleX(1);/*Muestra el elemento*/
     transform-origin: bottom left;/*desplaza el item*/
 }
-
+.Grid
+{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    
+}
+.Busqueda 
+{
+    grid-column: 1 / 3; /* La barra de búsqueda ocupa ambas columnas */
+    background-color: #f0f0f0; /* Fondo para que se vea mejor */
+    padding: 10px;
+    text-align: right;
+    
+    
+}
+.Busqueda input
+{
+    width: fit-content;
+    padding: 2px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    
+}
+.Filtros {
+    background-color: #dcdcdc; /* Fondo de los filtros */
+    padding: 5px;
+}
+.filtro-item {
+    margin: 10px 0;
+    padding: 2px;
+    background-color: #b0b0b0;
+    text-align: center;
+}
+.Catalogo {
+    background-color: #e8e8e8; /* Fondo del catálogo */
+    
+}
 /* Style del footer*/
 footer
 {
