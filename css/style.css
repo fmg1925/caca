@@ -127,7 +127,7 @@ body {
     height: 165px;/* Declara la altura maximo*/
     margin: 5px;/* Declara el margen*/
     border-radius: 15px;/* Redondea el borde*/
-    object-fit: cover; /* Ajusta la imagen al contenedor*/
+    object-fit:cover; /* Ajusta la imagen al contenedor*/
 }
 /* Style del ContenedorImagenes*/
 .contenedorImagenes

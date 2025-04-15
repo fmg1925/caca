@@ -1,31 +1,34 @@
 /* Style del body */
-body {
+body 
+{
     margin: 0;/*Declara el margen en 0*/
     font-family: 'Arial', sans-serif;/* Usa la siguiente fuente */
     background-color: blanco; /* Declara el color de fondo en blanco*/
     text-align: center; /* Centra el texto del contenido*/
-    
-
 }
 
 /* Style del contenedor del logo*/
-.logo-container {
+.logo-container 
+{
     margin: 0 auto;  /* Declara el margen en 0 a los lados y automatico verticalmente */
     height: fit-content;  /* La altura se ajustara al tamaño usado*/
 }
  /* Style de la imagen dentro del logo*/
-.logo-container img {
+.logo-container img 
+{
     height: 100px; /* Ajusta el tamaño según sea necesario */
 }
 
 /* Style del menu*/
-.menu {
+.menu 
+{
     background-color: rgba(255, 232, 251); /* Declara el color del fondo*/
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Le da una sombra*/
     padding: 10px 0;/*Le da un padding vertical y horizontal */
 }
 /* Style de la lista no numerada*/
-.menu ul {
+.menu ul 
+{
     list-style: none;/* Le quita el estilo a la lista (•)*/
     display:flex;/* Declara el display como un flex*/
     justify-content: center; /* Centra los elementos horizontalmente */
@@ -34,13 +37,15 @@ body {
     padding: 0;/* Declara el padding en 0*/
 }
 /* Style de la lista dentro de la lista*/
-.menu ul li {
+.menu ul li 
+{
     padding: 10px 25px;/* Declara el padding*/
     position: relative;/* Declara la Posicion como relativa*/
     z-index: 99999;/* Le da un index sobre todos los elementos*/
 }
 /* Style de las referencias dentro de la lista*/
-.menu ul li a {
+.menu ul li a 
+{
     text-decoration: none;/* Le quita el diseño a las referencias*/
     color: rgba(255, 109, 228 ); /* Declara el color*/
     font-weight: bold;/* Le da un relleno a la letra*/
@@ -49,7 +54,8 @@ body {
     transition: all 0.4s;/* Declara el tiempo de la animacion*/
 }
 /* Style del efecto hover de las referencias*/
-.menu ul li a:hover {
+.menu ul li a:hover 
+{
     color: rgba(147, 0, 255); /* Declara el color*/
 }
 /* Style del submenu*/
@@ -83,7 +89,8 @@ body {
     margin: 10px 0;/* Declara el margen*/
 }
 /* Style de las referencias dentro del submenu*/
-.Submenu ul li a {
+.Submenu ul li a 
+{
     color: rgba(255, 109, 228 );/* Declara el color de la letra*/
     text-decoration: none;/* Quita la decoracion de referencia*/
     font-size: 12px;/* Declara el tamaño de la letra*/
@@ -91,12 +98,14 @@ body {
     padding: 10px;/* Declara el padding*/
 }
 /* Style de las referencias al pasar el mouse encima*/
-.Submenu ul li a:hover {
+.Submenu ul li a:hover 
+{
     color: #f1c40f; /* Declara el color de la letra*/
     background-color: #8e44ad; /* Declara el color de fondo*/
 }
 /*Style de animacion*/
-.Submenu ul li a:before {
+.Submenu ul li a:before 
+{
     content: "";/* Declara el contenido en vacio*/
     position: absolute;/* Declara la posicion como absoluta*/
     bottom: 0;/* inicializa el contenido desde abajo*/
@@ -117,13 +126,15 @@ body {
 .Grid
 {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-rows: auto;
+    
+    
     
 }
 .Busqueda 
 {
-    grid-column: 1 / 3; /* La barra de búsqueda ocupa ambas columnas */
+    grid-column: 1 / 3; 
     background-color: #f0f0f0; /* Fondo para que se vea mejor */
     padding: 10px;
     text-align: right;
@@ -139,18 +150,67 @@ body {
     border-radius: 8px;
     
 }
-.Filtros {
+.Filtros 
+{
     background-color: #dcdcdc; /* Fondo de los filtros */
     padding: 5px;
 }
-.filtro-item {
+.filtro-item 
+{
     margin: 10px 0;
     padding: 2px;
     background-color: #b0b0b0;
     text-align: center;
 }
-.Catalogo {
+.Catalogo 
+{
     background-color: #e8e8e8; /* Fondo del catálogo */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    justify-items: center;
+}
+
+.Popular 
+{
+    background-color: white;
+    border-radius: 8px;
+    padding: 3px;
+    margin: 3px 0;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.Popular img 
+{
+    width: 180px;
+    height: 280px;
+    border-radius: 4px;
+    
+}
+.Popular a 
+{
+    text-decoration: none;
+    color: inherit;
+    
+    
+}
+.Popular p 
+{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px auto;
+    text-align:center;
+    
     
 }
 /* Style del footer*/
@@ -200,11 +260,37 @@ footer
     padding: 0 auto;/* Declara el padding vertical y horizontal*/
     margin: 8px auto;/* Declara el margin vertical y horizontal*/
 }
+
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)
 {
     .FooterColumna
     {
         font-size: 16px;
+    }
+    .Popular 
+    {
+        padding: 3px;
+        margin: 3px auto;
+        width: 140px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        height: 270px;
+        gap: 10px;
+    }
+    
+    .Popular img 
+    {
+        width: 130px;
+        height: 200px;
+        
+    }
+    .Popular p 
+    {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 2px auto;
+        text-align: center;
+        
     }
 }
