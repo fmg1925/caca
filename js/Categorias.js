@@ -2,6 +2,7 @@
     const params = new URLSearchParams(window.location.search);
     const categoria = params.get('categoria');
     const catalogo = document.querySelector('.Catalogo');
+    const verMas = document.getElementById('verMas');
     let currentPage = 1;
     
     function cargarmangas()
@@ -31,7 +32,7 @@
 
             case 'Publishing':
             case 'Complete':
-                fetch(`https://api.jikan.moe/v4/manga?status=${categoria}&limit=25`)
+                fetch(`https://api.jikan.moe/v4/manga?status=${categoria}&limit=25&page=${currentPage}`)
                     .then(response => response.json())
                     .then(data => 
                         {
@@ -51,7 +52,7 @@
             break;
             
             default:
-                fetch(`https://api.jikan.moe/v4/manga?genres=${categoria}&limit=25`)
+                fetch(`https://api.jikan.moe/v4/manga?genres=${categoria}&limit=25&page=${currentPage}`)
                     .then(response => response.json())
                     .then(data => 
                         {
@@ -71,7 +72,14 @@
             break;
         }
     }
-    
+
     cargarmangas();
-    
+    function functionVerMas() {
+        currentPage++;
+        cargarmangas();
+      }
+      
+      // Arrancar
+      verMas.addEventListener('click', functionVerMas);
+      cargarmangas();
 

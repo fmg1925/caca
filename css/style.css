@@ -11,9 +11,9 @@ body {
     background-color: #10d0de; /* Un tono turquesa bonito como el de la imagen */
     color: white;
     text-align: center;
-    padding: 8px 0;
+    padding: 4px 0;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
   }
 
@@ -33,7 +33,7 @@ body {
     justify-content: flex-end;
     gap: 20px;
     align-items: center;
-    padding: 10px 20px;
+    margin: 0 20px;
     background-color: white;
     font-family: 'Quicksand', sans-serif;
   }
@@ -41,17 +41,18 @@ body {
   .login-desplegable {
     position: relative;
     cursor: pointer;
+    padding: 10px 20px;
   }
   
   .login-desplegable i {
-    margin-right: 5px;
+    
     color: #ff69b4;
   }
   
   .formulario-login {
     display: none;
     position: absolute;
-    top: 30px;
+    top: 40px;
     right: 0;
     background: #ffe6f2;
     padding: 10px;
@@ -157,23 +158,25 @@ body {
 /* Style de la lista dentro del submenu*/
 .Submenu ul li
 {
-    margin: 10px 0;/* Declara el margen*/
+    margin: 0px 0;/* Declara el margen*/
 }
 /* Style de las referencias dentro del submenu*/
-.Submenu ul li a {
+.Submenu ul a li {
     color: rgba(255, 109, 228 );/* Declara el color de la letra*/
     text-decoration: none;/* Quita la decoracion de referencia*/
-    font-size: 12px;/* Declara el tamaño de la letra*/
+    font-size: 14px;/* Declara el tamaño de la letra*/
     transition: all 0.4s;/* Declara el tiempo de la animacion*/
-    padding: 10px;/* Declara el padding*/
+    
 }
 /* Style de las referencias al pasar el mouse encima*/
-.Submenu ul li a:hover {
+.Submenu ul a li:hover 
+{
     color: #f1c40f; /* Declara el color de la letra*/
     background-color: #8e44ad; /* Declara el color de fondo*/
 }
 /*Style de animacion*/
-.Submenu ul li a:before {
+.Submenu ul a li:before 
+{
     content: "";/* Declara el contenido en vacio*/
     position: absolute;/* Declara la posicion como absoluta*/
     bottom: 0;/* inicializa el contenido desde abajo*/
@@ -187,7 +190,7 @@ body {
 }
 
 /* Style de la animacion al hacer hover*/
-.Submenu ul li a:hover:before {
+.Submenu ul a li:hover:before {
     transform: scaleX(1);/*Muestra el elemento*/
     transform-origin: bottom left;/*desplaza el item*/
 }
@@ -451,6 +454,10 @@ footer
     {
         font-size: 16px;
     }
-    
+    .promo-barra {
+       
+        font-size: 14px;
+        
+      }
     
 }
