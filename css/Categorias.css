@@ -3,7 +3,7 @@ body
 {
     margin: 0;/*Declara el margen en 0*/
     font-family: 'Arial', sans-serif;/* Usa la siguiente fuente */
-    background-color: blanco; /* Declara el color de fondo en blanco*/
+    background-color: white; /* Declara el color de fondo en blanco*/
     text-align: center; /* Centra el texto del contenido*/
 }
 
@@ -61,7 +61,7 @@ body
     border: 2px solid #ff69b4;
     border-radius: 10px;
     width: 250px;
-    z-index: 1000;
+    z-index: 9999999;
   }
   
   .formulario-login input {
@@ -154,6 +154,7 @@ body
     left: 0;/* Su posicion a la izquierda sera la minima*/
     background-color: rgba(255, 232, 251 );/* Declara el color de fondo*/
     width: fit-content;/* El ancho dependera del contenido*/
+    
 }
 /* Style de la lista no numerada del submenu*/
 .Submenu ul
@@ -177,13 +178,13 @@ body
     padding: 10px;/* Declara el padding*/
 }
 /* Style de las referencias al pasar el mouse encima*/
-.Submenu ul li a:hover 
+.Submenu ul a li:hover 
 {
     color: #f1c40f; /* Declara el color de la letra*/
     background-color: #8e44ad; /* Declara el color de fondo*/
 }
 /*Style de animacion*/
-.Submenu ul li a:before 
+.Submenu ul a li:before 
 {
     content: "";/* Declara el contenido en vacio*/
     position: absolute;/* Declara la posicion como absoluta*/
@@ -198,7 +199,7 @@ body
 }
 
 /* Style de la animacion al hacer hover*/
-.Submenu ul li a:hover:before {
+.Submenu ul a li:hover:before {
     transform: scaleX(1);/*Muestra el elemento*/
     transform-origin: bottom left;/*desplaza el item*/
 }
@@ -215,7 +216,7 @@ body
     background-color: #f0f0f0; /* Fondo para que se vea mejor */
     padding: 10px;
     text-align: right;
-       
+    
 }
 .Busqueda input
 {
