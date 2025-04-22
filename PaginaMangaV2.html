@@ -3,18 +3,42 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet"><!--Da acceso para usar pixelify -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"><!--Da acceso para usar FontAwessome -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="img/kitsune.png" type="image/png"><!--Declara el icono de la pagina-->
     <link rel="stylesheet" href="css/style.css"><!--Hace la conexion con el style-->
     <meta charset="UTF-8">
     <title>KiwiMangas</title><!--Titulo de la pagina-->
 </head>
 <body><!--Cuerpo de la pagina-->
+
+    <!--barra de descuento-->
+    <div class="promo-barra">
+        <i>CÓDIGO DE DESCUENTO DE COMPRAS ACA 💖 Usa <b>"KIWI10"</b> para 10% off</i>
+      </div>
     <!--Encabezado-->
     <header class="logo-container">
         <a href="PaginaMangaV2.html">
             <img src="img/Logo.png" alt="Logo de la página de mangas"><!--Logo-->
         </a>
     </header><!--Fin del Encabezado-->
+    <!--Login con carrito de compra uwu-->
+    <div class="iconos-superiores"> 
+        <div class="login-desplegable">
+          <i class="fas fa-user"></i> Iniciar sesión
+          <div class="formulario-login">
+            <form>
+              <input type="text" placeholder="Nombre de usuario" required>
+              <input type="password" placeholder="Contraseña" required>
+              <button type="submit">Entrar</button>
+            </form>
+          </div>
+        </div>
+      
+        <div class="carrito">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="contador-carrito">(0)</span>
+        </div>
+      </div>
     <!--Navegacion-->
     <nav class="menu">
         <ul><!--Lista Principal del menu-->
