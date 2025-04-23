@@ -5,7 +5,7 @@
     const verMas = document.getElementById('verMas');
     let currentPage = 1;
     
-    function cargarmangas()
+    async function cargarmangas()
     {
         catalogo.innerHTML='';
         switch(categoria)
@@ -87,10 +87,11 @@
     {
         catalogo.innerHTML = "";
         const busqueda = document.getElementById("buscar").value.trim().toLowerCase();
-        const Popular = document.createElement('div')
-        Popular.classList.add('Popular')
+        
         if (busqueda.includes("skibidi")) 
         {
+            const Popular = document.createElement('div')
+            Popular.classList.add('Popular')
             Popular.innerHTML = `
                 <a href="https://www.youtube.com/watch?v=uO1NPnoU2kQ" target=_blank">
                 <img src="https://i.pinimg.com/1200x/23/62/2e/23622e721a31b1bf7d58661f91856d7b.jpg" />
@@ -108,7 +109,8 @@
                         {
                         data.data.forEach(manga => 
                             {
-                            
+                            const Popular = document.createElement('div')
+                            Popular.classList.add('Popular')
                             Popular.innerHTML = `
                                 <a href="${manga.url}" target="_blank">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
