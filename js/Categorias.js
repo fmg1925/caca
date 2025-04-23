@@ -74,9 +74,11 @@
     }
 
     cargarmangas();
-    function functionVerMas() {
+    function functionVerMas()
+     {
         currentPage++;
         cargarmangas();
+        buscarMangas();
       }
 
     verMas.addEventListener('click', functionVerMas);
@@ -85,7 +87,7 @@
     {
         catalogo.innerHTML = "";
         const busqueda = document.getElementById("buscar").value.trim().toLowerCase();
-        fetch(`https://api.jikan.moe/v4/manga?q=${busqueda}&sfw=true`)
+        fetch(`https://api.jikan.moe/v4/manga?q=${busqueda}&sfw=true&limit=25&page=${currentPage}`)
                     .then(response => response.json())
                     .then(data => 
                         {
@@ -96,7 +98,9 @@
                             Popular.innerHTML = `
                                 <a href="${manga.url}" target="_blank">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
-                                    <p>${manga.title}</p>
+                                    <p title="${manga.title}">
+                                    ${manga.title.length > 100 ? manga.title.slice(0, 100) + '...' : manga.title}
+                                    </p>
                                 </a>
                             `;
                             catalogo.appendChild(Popular);

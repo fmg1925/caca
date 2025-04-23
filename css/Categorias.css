@@ -367,17 +367,15 @@ footer
         padding: 3px;
         margin: 3px auto;
         width: 140px;
-        text-align: center;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         height: 290px;
         gap: 10px;
+        overflow: scroll;
     }
     
     .Popular img 
     {
-        width: 130px;
-        height: 200px;
-        
+        width: 100%;
+        height: auto;
     }
     .Popular p 
     {
@@ -385,7 +383,6 @@ footer
         font-weight: bold;
         margin: 2px auto;
         text-align: center;
-        
     }
     .promo-barra 
     {
