@@ -87,14 +87,28 @@
     {
         catalogo.innerHTML = "";
         const busqueda = document.getElementById("buscar").value.trim().toLowerCase();
-        fetch(`https://api.jikan.moe/v4/manga?q=${busqueda}&sfw=true&limit=25&page=${currentPage}`)
+        const Popular = document.createElement('div')
+        Popular.classList.add('Popular')
+        if (busqueda === "skibidi") 
+        {
+            Popular.innerHTML = `
+                <a href="https://www.youtube.com/watch?v=uO1NPnoU2kQ" target=_blank">
+                <img src="https://i.pinimg.com/1200x/23/62/2e/23622e721a31b1bf7d58661f91856d7b.jpg" />
+                <p>Que se mejore</p>
+                <p>Antonio porfa matese</p>
+                </a>
+            `;
+            catalogo.appendChild(Popular);
+        }
+        else
+        {
+            fetch(`https://api.jikan.moe/v4/manga?q=${busqueda}&sfw=true&limit=25&page=${currentPage}`)
                     .then(response => response.json())
                     .then(data => 
                         {
                         data.data.forEach(manga => 
                             {
-                            const Popular = document.createElement('div')
-                            Popular.classList.add('Popular')
+                            
                             Popular.innerHTML = `
                                 <a href="${manga.url}" target="_blank">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
@@ -106,4 +120,7 @@
                             catalogo.appendChild(Popular);
                             });
                         });
+        }
+        
+                       
     }
