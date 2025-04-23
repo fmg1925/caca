@@ -89,7 +89,7 @@
         const busqueda = document.getElementById("buscar").value.trim().toLowerCase();
         const Popular = document.createElement('div')
         Popular.classList.add('Popular')
-        if (busqueda === "skibidi") 
+        if (busqueda.includes("skibidi")) 
         {
             Popular.innerHTML = `
                 <a href="https://www.youtube.com/watch?v=uO1NPnoU2kQ" target=_blank">
