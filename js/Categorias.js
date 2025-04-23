@@ -78,8 +78,28 @@
         currentPage++;
         cargarmangas();
       }
-      
-      // Arrancar
-      verMas.addEventListener('click', functionVerMas);
-      cargarmangas();
 
+    verMas.addEventListener('click', functionVerMas);
+
+    function buscarMangas()
+    {
+        catalogo.innerHTML = "";
+        const busqueda = document.getElementById("buscar").value.trim().toLowerCase();
+        fetch(`https://api.jikan.moe/v4/manga?q=${busqueda}&sfw=true`)
+                    .then(response => response.json())
+                    .then(data => 
+                        {
+                        data.data.forEach(manga => 
+                            {
+                            const Popular = document.createElement('div')
+                            Popular.classList.add('Popular')
+                            Popular.innerHTML = `
+                                <a href="${manga.url}" target="_blank">
+                                    <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
+                                    <p>${manga.title}</p>
+                                </a>
+                            `;
+                            catalogo.appendChild(Popular);
+                            });
+                        });
+    }
