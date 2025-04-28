@@ -4,6 +4,8 @@
     const catalogo = document.querySelector('.Catalogo');
     const verMas = document.getElementById('verMas');
     let currentPage = 1;
+    let Buscado=false;
+    const paginasMaxima = 20;
     
     async function cargarmangas()
     {
@@ -27,7 +29,9 @@
                                 `;
                                 catalogo.appendChild(Popular);
                         });
-                    })
+                        crearPaginacion(data.pagination.last_visible_page);
+                    });
+                    
             break;
 
             case 'Publishing':
@@ -48,6 +52,7 @@
                             `;
                             catalogo.appendChild(Popular);
                             });
+                            crearPaginacion(data.pagination.last_visible_page);
                         });
             break;
             
@@ -68,6 +73,7 @@
                             `;
                             catalogo.appendChild(Popular);
                             });
+                            crearPaginacion(data.pagination.last_visible_page);
                         });
             break;
         }
@@ -86,10 +92,15 @@
 
     async function buscarMangas(resetPage=true)
     {
+        Buscado=true;
         if(resetPage)currentPage=1;
         catalogo.innerHTML = "";
         const busqueda = document.getElementById("buscar").value.trim().toLowerCase();
-        if(busqueda == "") return cargarmangas();
+        if(busqueda == "")
+            {
+                Buscado=false;
+                return cargarmangas();
+            } 
         if (busqueda.includes("skibidi")) 
         {
             const Popular = document.createElement('div')
@@ -102,6 +113,7 @@
                 </a>
             `;
             catalogo.appendChild(Popular);
+            crearPaginacion(1);
             
         }
         if (busqueda.includes("homero")) {
@@ -115,6 +127,8 @@
                             </a>
                         `;
             catalogo.appendChild(Popular);
+            crearPaginacion(1);
+            
           }
           if (busqueda.includes("de guiken")) {
             const Popular = document.createElement("div");
@@ -126,7 +140,8 @@
                                 <p>fin de semana</p>
                                 </a>
                             `;
-            return catalogo.appendChild(Popular);
+            catalogo.appendChild(Popular);
+            crearPaginacion(1);
           }
         else
         {
@@ -149,10 +164,46 @@
                             catalogo.appendChild(Popular);
                             
                             });
-                            
+                            crearPaginacion(data.pagination.last_visible_page);
                         });
                         
         }
         
                        
     }
+    function crearPaginacion(totalPaginas)
+    {
+        const container = document.querySelector('.BotonCentro')
+        container.innerHTML='';
+        const paginasMostradas = Math.min(totalPaginas, paginasMaxima);
+
+        for (let i =1; i<=paginasMostradas;i++)
+        {
+            const span = document.createElement('span');
+            span.textContent=i;
+            span.classList.add('numeroPagina')
+
+            if (i===currentPage)
+            {
+                span.classList.add('activo')
+            }
+
+            span.addEventListener('click', ()=>cambiarPagina(i, totalPaginas));
+            container.appendChild(span);
+        }
+        
+    }
+    function cambiarPagina(nuevaPagina, totalPaginas)
+    {
+        currentPage = nuevaPagina;
+        if (Buscado) 
+        {
+            buscarMangas(false); 
+        } 
+        else 
+        {
+            cargarmangas();
+        }
+        crearPaginacion(totalPaginas);
+    }
+    
