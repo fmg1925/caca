@@ -88,7 +88,7 @@
         
       }
 
-    verMas.addEventListener('click', functionVerMas);
+    
 
     async function buscarMangas(resetPage=true)
     {
