@@ -233,7 +233,7 @@ body
     background-color: #dcdcdc; /* Fondo de los filtros */
     padding: 5px;
 }
-.filtro-item 
+.filtro-tipo 
 {
     margin: 10px 0;
     padding: 2px;
@@ -430,5 +430,14 @@ footer
     .Catalogo 
     {
         grid-template-columns: repeat(3, 1fr);
+        grid-column: 1/7; 
+    }
+    .Filtros 
+    {
+        grid-column: 1/ 7; 
+    }
+    .Busqueda 
+    {
+        grid-column: 1 /7; 
     }
 }
