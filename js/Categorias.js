@@ -173,7 +173,7 @@
     }
     function crearPaginacion(totalPaginas)
     {
-        const container = document.querySelector('.BotonCentro')
+        const container = document.querySelector('.Paginacion')
         container.innerHTML='';
         const paginasMostradas = Math.min(totalPaginas, paginasMaxima);
 
