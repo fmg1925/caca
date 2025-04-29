@@ -24,7 +24,9 @@
                             Popular.innerHTML = `
                                 <a href="${manga.url}" target="_blank">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
-                                    <p>${manga.title}</p>
+                                    <p title="${manga.title}">
+                                    ${manga.title.length > 100 ? manga.title.slice(0, 100) + '...' : manga.title}
+                                    </p>
                                 </a>
                                 `;
                                 catalogo.appendChild(Popular);
@@ -47,7 +49,9 @@
                             Popular.innerHTML = `
                                 <a href="${manga.url}" target="_blank">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
-                                    <p>${manga.title}</p>
+                                    <p title="${manga.title}">
+                                    ${manga.title.length > 100 ? manga.title.slice(0, 100) + '...' : manga.title}
+                                    </p>
                                 </a>
                             `;
                             catalogo.appendChild(Popular);
@@ -68,7 +72,9 @@
                             Popular.innerHTML = `
                                 <a href="${manga.url}" target="_blank">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
-                                    <p>${manga.title}</p>
+                                    <p title="${manga.title}">
+                                    ${manga.title.length > 100 ? manga.title.slice(0, 100) + '...' : manga.title}
+                                    </p>
                                 </a>
                             `;
                             catalogo.appendChild(Popular);
@@ -176,7 +182,6 @@
         const container = document.querySelector('.Paginacion')
         container.innerHTML='';
         const paginasMostradas = Math.min(totalPaginas, paginasMaxima);
-
         for (let i =1; i<=paginasMostradas;i++)
         {
             const span = document.createElement('span');
@@ -190,6 +195,22 @@
 
             span.addEventListener('click', ()=>cambiarPagina(i, totalPaginas));
             container.appendChild(span);
+            
+        }
+        if (totalPaginas > paginasMostradas) 
+        {
+            const peo = document.createElement('span');
+            peo.textContent = "→";
+            peo.classList.add('numeroPagina');
+    
+            if (currentPage === totalPaginas) 
+            {
+                peo.textContent = totalPaginas;
+                peo.classList.add('activo');
+            }
+    
+            peo.addEventListener('click', () => cambiarPagina(totalPaginas, totalPaginas));
+            container.appendChild(peo);
         }
         
     }
