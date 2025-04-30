@@ -120,7 +120,7 @@
             `;
             catalogo.appendChild(Popular);
             crearPaginacion(1);
-            
+            return;
         }
         if (busqueda.includes("homero")) {
             const Popular = document.createElement("div");
@@ -134,7 +134,7 @@
                         `;
             catalogo.appendChild(Popular);
             crearPaginacion(1);
-            
+            return;
           }
           if (busqueda.includes("de guiken")) {
             const Popular = document.createElement("div");
@@ -148,6 +148,7 @@
                             `;
             catalogo.appendChild(Popular);
             crearPaginacion(1);
+            return;
           }
         else
         {
