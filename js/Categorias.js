@@ -1,12 +1,21 @@
-
     const params = new URLSearchParams(window.location.search);
     const categoria = params.get('categoria');
+    const busqueda = params.get('q');
     const catalogo = document.querySelector('.Catalogo');
     const verMas = document.getElementById('verMas');
     let currentPage = 1;
     let Buscado=false;
     const paginasMaxima = 20;
     
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (busqueda) {
+        document.getElementById("buscar").value = busqueda; 
+        buscarMangas();  
+    } else {
+        cargarmangas(); 
+    }
+});
     async function cargarmangas()
     {
         catalogo.innerHTML='';
@@ -84,18 +93,6 @@
             break;
         }
     }
-
-    cargarmangas();
-    function functionVerMas()
-     {
-        currentPage++;
-        
-        buscarMangas(false);
-        
-      }
-
-    
-
     async function buscarMangas(resetPage=true)
     {
         Buscado=true;
@@ -107,6 +104,10 @@
                 Buscado=false;
                 return cargarmangas();
             } 
+            const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('q', busqueda); // Actualiza el parámetro 'q'
+    window.history.pushState({}, '', '?' + urlParams.toString()); // Cambia la URL sin recargar
+
         if (busqueda.includes("skibidi")) 
         {
             const Popular = document.createElement('div')
@@ -156,6 +157,10 @@
                     .then(response => response.json())
                     .then(data => 
                         {
+                            if (data.data.length === 0) {
+                                catalogo.innerHTML = '<p>No hay mangas con ese nombre UnU</p>';
+                                return;
+                            }
                         data.data.forEach(manga => 
                             {
                             const Popular = document.createElement('div')
@@ -231,7 +236,6 @@
             cargarmangas();
         }
     }
-    if (!params.has("categoria")) {
-       
+    if (!params.has("categoria") && !params.has("q")) { 
         window.location.href = window.location.pathname + "?categoria=populares";
-      }
+    }

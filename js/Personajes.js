@@ -16,10 +16,29 @@ if (idPersonaje) {
             const img = document.createElement('img');
             const info = document.getElementById('info');
             const voz = document.getElementById('voz');
-            const biografiaLimpia = Personaje.about.replace(/\r?\n/g, '\n'); // Normalizar saltos de línea
-            const [atributos, ...resto] = biografiaLimpia.split('\n\n'); // Primer bloque = atributos
-            const bioFormateada = resto.map(parrafo => `<p>${parrafo.trim()}</p>`).join('');
+            const sobre = Personaje.about || '';
+            let atributosHTML = '';
+            let biografiaHTML = '';
             
+            if (sobre) {
+                const lineas = sobre.split('\n');
+            
+                lineas.forEach(linea => {
+                    const lineaLimpia = linea.trim();
+            
+                    // Ignorar cualquier línea que empiece con "(Source:"
+                    if (lineaLimpia.startsWith('(Source:')) return;
+            
+                    if (lineaLimpia.includes(':') && !lineaLimpia.startsWith('(')) {
+                        const [clave, valor] = lineaLimpia.split(':').map(p => p.trim());
+                        if (clave && valor) {
+                            atributosHTML += `<li><strong>${clave}:</strong> ${valor}</li>`;
+                        }
+                    } else if (lineaLimpia) {
+                        biografiaHTML += `<p>${lineaLimpia}</p>`;
+                    }
+                });
+            }
             img.src=Personaje.images.jpg.image_url;
             img.alt=Personaje.name;
             
@@ -42,10 +61,10 @@ if (idPersonaje) {
                 </ul>
                 <hr>
             ` : ''}
-        `;
+            `;
             manga.innerHTML =
             `
-                           <ul>
+                <ul>
                     ${Personaje.manga?.length > 0 ? Personaje.manga.map(m => `
                         <li>
                             <img src="${m.manga.images.jpg.image_url}" alt="${m.manga.title}" style="width:50px; vertical-align:middle;">
@@ -61,18 +80,13 @@ if (idPersonaje) {
             `;
             info.innerHTML = `
             <h3>Sobre el personaje</h3>
-            <ul>
-                ${atributos.split('\n').map(linea => {
-                    const [clave, valor] = linea.split(':').map(part => part.trim());
-                    if (!clave || !valor) return '';
-                    return `<li><strong>${clave}:</strong> ${valor}</li>`;
-                }).join('')}
-            </ul>
-            ${bioFormateada || '<p>Desconocida</p>'}
+            ${atributosHTML ? `<ul>${atributosHTML}</ul>` : ''}
+            ${biografiaHTML || ''}
             <hr>
-            `;
+        `;
             voz.innerHTML = 
             `
+            
                 ${Personaje.voices?.length > 0 ? `
                 <h4>Actores de voz:</h4>
                 <ul>
@@ -98,3 +112,9 @@ if (!parametros.has("id")) {
        
     window.location.href = window.location.pathname + "?id=1";
   }
+    function redirigirBusqueda() {
+    const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
+    if (titulo) {
+        window.location.href = `Categorias.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+    }
+}

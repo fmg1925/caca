@@ -194,6 +194,21 @@ body {
     transform: scaleX(1);/*Muestra el elemento*/
     transform-origin: bottom left;/*desplaza el item*/
 }
+.Busqueda 
+{
+    margin: 0 0;/* Declara el margen*/
+    text-align: right;
+    
+}
+.Busqueda input
+{
+    width: 400px;
+    padding: 2px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    
+}
 /* Style del div manga foto*/
 .mangafoto
 {

@@ -20,11 +20,15 @@ if (idManga) {
             const foro = document.getElementById('foro');
             const fechaInicio = new Date(manga.published?.from).toLocaleDateString();
             const fechaFin = manga.published?.to ? new Date(manga.published.to).toLocaleDateString() : 'hasta hoy';
-            let sinopsisLimpia = manga.synopsis.replace(/\[Written by MAL Rewrite\]/, '');
-            let sinopsisFormateada = sinopsisLimpia
-            .split('\n\n')
-            .map(parrafo => `<p>${parrafo.trim()}</p>`)
-            .join('');
+            let sinopsisFormateada = 'Desconocida';
+
+            if (manga.synopsis) {
+                const sinopsisLimpia = manga.synopsis.replace(/\[Written by MAL Rewrite\]/, '');
+                sinopsisFormateada = sinopsisLimpia
+                    .split('\n\n')
+                    .map(parrafo => `<p>${parrafo.trim()}</p>`)
+                    .join('');
+            }
 
             img.src=manga.images.jpg.image_url;
             img.alt=manga.title;
@@ -41,33 +45,31 @@ if (idManga) {
             <hr>
             <h4>Información</h4>
             <p><strong>Tipo:</strong> ${manga.type}</p>
-            <p><strong>Categoria:</strong> ${(manga.demographics?.length > 0 ? manga.demographics.map(categ => categ.name).join(', ') : 'Desconocida')}</p>
-            <p><strong>Genero/s:</strong> ${(manga.genres?.length > 0 ? manga.genres.map(gen => gen.name).join(', ') : 'Desconocida')}</p>
-            <p><strong>Tema/s:</strong> ${(manga.themes?.length > 0 ? manga.themes.map(tem => tem.name).join(', ') : 'Desconocida')}</p>
-            <p><strong>Autor:</strong> ${(manga.authors?.length > 0 ? manga.authors.map(autor => autor.name).join(', ') : 'Desconocido')}</p>
-            <p><strong>Capítulos:</strong> ${manga.chapters || 'Desconocida'}</p>
-            <p><strong>Volumenes:</strong> ${manga.volumes || 'Desconocida'}</p>
-            <p><strong>Estado:</strong> ${manga.status || 'Desconocida'}</p>
-            <p><strong>Editorial:</strong> ${(manga.serializations?.length > 0 ? manga.serializations.map(peo => peo.name).join(', ') : 'Desconocido')}</p>
+            ${manga.demographics?.length > 0 ? `<p><strong>Categoria:</strong> ${manga.demographics.map(categ => categ.name).join(', ')}</p>` : ''}
+            ${manga.genres?.length > 0 ?`<p><strong>Genero/s:</strong>  ${manga.genres.map(gen => gen.name).join(', ')}</p>` : ''}
+            ${manga.themes?.length > 0 ?`<p><strong>Tema/s:</strong>  ${manga.themes.map(tem => tem.name).join(', ')}</p>` : ''}
+            ${manga.authors?.length > 0 ?`<p><strong>Autor:</strong>  ${manga.authors.map(autor => autor.name).join(', ')}</p>`: ''}
+            <p><strong>Capítulos:</strong> ${manga.chapters || 'N/A'}</p>
+            <p><strong>Volumenes:</strong> ${manga.volumes || 'N/A'}</p>
+            <p><strong>Estado:</strong> ${manga.status || 'N/A'}</p>
+            <p><strong>Editorial:</strong> ${(manga.serializations?.length > 0 ? manga.serializations.map(peo => peo.name).join(', ') : 'N/A')}</p>
             <p><strong>Fecha de publicación:</strong> ${fechaInicio} - ${fechaFin}</p>
             <hr>
             `;
-            estadisticas.innerHTML =
-            `
-            <p><strong>Puntuacion:</strong> ${manga.score || 'Desconocida'} (reseñado por <strong>${manga.scored_by || 'Desconocida'}</strong> usuarios)</p>
-            <p><strong>Ranking:</strong> #${manga.rank || 'Desconocida'}</p>
-            <p><strong>Rankig usuarios:</strong> #${manga.popularity || 'Desconocida'}</p>
-            <p><strong>Favorito de:</strong> ${manga.favorites || 'Desconocida'}</p>
-            <hr>
+            estadisticas.innerHTML = `
+            ${manga.score ? `<p><strong>Puntuación:</strong> ${manga.score} (reseñado por <strong>${manga.scored_by}</strong> usuarios)</p>` : ''}
+            ${manga.rank ? `<p><strong>Ranking:</strong> #${manga.rank}</p>` : ''}
+            ${manga.popularity ? `<p><strong>Ranking usuarios:</strong> #${manga.popularity}</p>` : ''}
+            ${manga.favorites ? `<p><strong>Favorito de:</strong> ${manga.favorites}</p>` : ''}
+            ${(manga.score || manga.rank || manga.popularity || manga.favorites) ? '<hr>' : ''}
             `;
             ranking.innerHTML =
             `
-            <strong>Puntuacion</strong> 
-            <p>${manga.score || 'Desconocida'} (reseñado por <strong>${manga.scored_by || 'Desconocida'}</strong> usuarios)</p>
-            <p><strong>Ranking:</strong> #${manga.rank || 'Desconocida'}</p>
-            <p><strong>Rankig Popular:</strong> #${manga.popularity || 'Desconocida'}</p>
-            <p><strong>Favorito de:</strong> ${manga.favorites || 'Desconocida'}</p>
-            <hr>
+            ${manga.score ? `<p><strong>Puntuación:</strong> ${manga.score} (reseñado por <strong>${manga.scored_by}</strong> usuarios)</p>` : ''}
+            ${manga.rank ? `<p><strong>Ranking:</strong> #${manga.rank}</p>` : ''}
+            ${manga.popularity ? `<p><strong>Ranking usuarios:</strong> #${manga.popularity}</p>` : ''}
+            ${manga.favorites ? `<p><strong>Favorito de:</strong> ${manga.favorites}</p>` : ''}
+            ${(manga.score || manga.rank || manga.popularity || manga.favorites) ? '<hr>' : ''}
             `;
             sinopsis.innerHTML =
             `
@@ -76,18 +78,18 @@ if (idManga) {
             <hr>
             `;
             relacionados.innerHTML =
+            relaciones?.length > 0 ? 
             `
-            <strong>Relacionado</strong> 
-            <p>
-                ${relaciones?.length > 0 ? relaciones
+                <strong>Relacionado</strong> 
+                <p>
+                    ${relaciones
                         .map(rel => `${rel.relation}: ${rel.entry.map(e => e.name).join(', ')}`)
-                        .join('<br>')
-                    : 'Desconocida'
-                }
-            </p>
+                        .join('<br>')}
+                </p>
+                <hr>
+            ` : ''
+            ;
 
-            <hr>
-            `;
             fetch(`https://api.jikan.moe/v4/manga/${manga.mal_id}/characters`)
             .then(res => res.json())
             .then(data => {
@@ -153,3 +155,9 @@ if (!parametros.has("id")) {
        
     window.location.href = window.location.pathname + "?id=1";
   }
+  function redirigirBusqueda() {
+    const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
+    if (titulo) {
+        window.location.href = `Categorias.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+    }
+}

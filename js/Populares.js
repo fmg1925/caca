@@ -72,3 +72,9 @@
     cargarPersonajes(currentPage);
     cargarPopularesManga(currentPage);
   });
+  function redirigirBusqueda() {
+    const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
+    if (titulo) {
+        window.location.href = `Categorias.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+    }
+}
