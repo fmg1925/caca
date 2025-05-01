@@ -17,6 +17,8 @@ if (idManga) {
             const relacionados = document.getElementById('relacionados');
             const personajes = document.getElementById('personajes');
             const foro = document.getElementById('foro');
+            const fechaInicio = new Date(manga.published?.from).toLocaleDateString();
+            const fechaFin = manga.published?.to ? new Date(manga.published.to).toLocaleDateString() : 'hasta hoy';
             
             img.src=manga.images.jpg.image_url;
             img.alt=manga.title;
@@ -34,12 +36,12 @@ if (idManga) {
             <h4>Información</h4>
             
             <p><strong>tipo:</strong> ${manga.type}</p>
-            <p><strong>Categoria:</strong> ${(manga.demographics?.length > 0 ? manga.demographics.map(c => c.name).join(', ') : 'Desconocida')}</p>
-<p><strong>Autor:</strong> ${(manga.authors?.length > 0 ? manga.authors.map(a => a.name).join(', ') : 'Desconocido')}</p>
+            <p><strong>Categoria:</strong> ${(manga.demographics?.length > 0 ? manga.demographics.map(categ => categ.name).join(', ') : 'Desconocida')}</p>
+            <p><strong>Autor:</strong> ${(manga.authors?.length > 0 ? manga.authors.map(autor => autor.name).join(', ') : 'Desconocido')}</p>
             <p><strong>Capítulos:</strong> ${manga.chapters || 'Desconocida'}</p>
             <p><strong>volumenes:</strong> ${manga.volumes || 'Desconocida'}</p>
             <p><strong>Estado:</strong> ${manga.status || 'Desconocida'}</p>
-            <p><strong>Fecha de estreno:</strong> ${manga.published.string || 'Desconocida'}</p>
+            <p><strong>Fecha de publicación:</strong> ${fechaInicio} - ${fechaFin}</p>
             
             <hr>
             `;
@@ -47,7 +49,7 @@ if (idManga) {
             `
             <p><strong>Puntuacion:</strong> ${manga.score || 'Desconocida'} (reseñado por: ${manga.scored_by || 'Desconocida'})</p>
             <p><strong>Ranking:</strong> #${manga.rank || 'Desconocida'}</p>
-            <p><strong>Rankig usuarios:</strong> ${manga.popularity || 'Desconocida'}</p>
+            <p><strong>Rankig usuarios:</strong> #${manga.popularity || 'Desconocida'}</p>
             <p><strong>Favorito de:</strong> ${manga.favorites || 'Desconocida'}</p>
             `;
 

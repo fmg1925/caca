@@ -15,7 +15,7 @@
             case 'populares':
                 
 
-            await fetch(`https://api.jikan.moe/v4/top/manga?page=${currentPage}&limit=25`)
+            await fetch(`https://api.jikan.moe/v4/top/manga?page=${currentPage}&limit=25&sfw=true`)
                     .then(response => response.json())
                     .then(data=> {
                         data.data.forEach(manga=> {
@@ -38,7 +38,7 @@
 
             case 'Publishing':
             case 'Complete':
-                await fetch(`https://api.jikan.moe/v4/manga?status=${categoria}&limit=25&page=${currentPage}`)
+                await fetch(`https://api.jikan.moe/v4/manga?status=${categoria}&limit=25&page=${currentPage}&sfw=true`)
                     .then(response => response.json())
                     .then(data => 
                         {
@@ -61,7 +61,7 @@
             break;
             
             default:
-                await fetch(`https://api.jikan.moe/v4/manga?genres=${categoria}&limit=25&page=${currentPage}`)
+                await fetch(`https://api.jikan.moe/v4/manga?genres=${categoria}&limit=25&page=${currentPage}&sfw=true`)
                     .then(response => response.json())
                     .then(data => 
                         {
@@ -180,42 +180,46 @@
     }
     function crearPaginacion(totalPaginas)
     {
-        const container = document.querySelector('.Paginacion')
+        const container = document.querySelector('.Paginacion');
         container.innerHTML='';
-        const paginasMostradas = Math.min(totalPaginas, paginasMaxima);
-        for (let i =1; i<=paginasMostradas;i++)
+
+        const tolerancia = 5;
+        if (currentPage - tolerancia > 0) // Mostrar flecha de mierda
         {
             const span = document.createElement('span');
-            span.textContent=i;
-            span.classList.add('numeroPagina')
+            span.textContent = "←";
+            span.classList.add('numeroPagina');
+            span.addEventListener('click', () => cambiarPagina(1));
+            container.appendChild(span);
+        }
+        for (let i = currentPage - tolerancia; i <= currentPage + tolerancia; i++) // Añadir siguientes páginas
+        {
+            if(i <= 0 || i > totalPaginas) continue;
+            const span = document.createElement('span');
+            span.textContent = i;
+            span.classList.add('numeroPagina');
 
-            if (i===currentPage)
+            if (i === currentPage)
             {
-                span.classList.add('activo')
+                span.classList.add('activo');
             }
 
-            span.addEventListener('click', ()=>cambiarPagina(i, totalPaginas));
+            span.addEventListener('click', () => cambiarPagina(i));
             container.appendChild(span);
             
         }
-        if (totalPaginas > paginasMostradas) 
+    
+        if (totalPaginas > currentPage + tolerancia) // Mostrar flecha de mierda
         {
-            const peo = document.createElement('span');
-            peo.textContent = "→";
-            peo.classList.add('numeroPagina');
-    
-            if (currentPage === totalPaginas) 
-            {
-                peo.textContent = totalPaginas;
-                peo.classList.add('activo');
-            }
-    
-            peo.addEventListener('click', () => cambiarPagina(totalPaginas, totalPaginas));
-            container.appendChild(peo);
+            const span = document.createElement('span');
+            span.textContent = "→";
+            span.classList.add('numeroPagina');
+            span.addEventListener('click', () => cambiarPagina(totalPaginas));
+            container.appendChild(span);
         }
         
     }
-    function cambiarPagina(nuevaPagina, totalPaginas)
+    function cambiarPagina(nuevaPagina)
     {
         currentPage = nuevaPagina;
         if (Buscado) 
@@ -226,6 +230,8 @@
         {
             cargarmangas();
         }
-        crearPaginacion(totalPaginas);
     }
-    
+    if (!params.has("categoria")) {
+       
+        window.location.href = window.location.pathname + "?categoria=populares";
+      }

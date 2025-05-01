@@ -17,7 +17,7 @@
                 Popular.classList.add('Popular');
   
                 Popular.innerHTML = `
-                    <a href="${manga.url}" target="_blank">
+                    <a href="Detalles.html?id=${manga.mal_id}">
                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                     <p>${manga.title}</p>
                     </a>
@@ -52,7 +52,7 @@
               personajes.classList.add('Popular');
 
               personajes.innerHTML = `
-                  <a href="${character.url}" target="_blank">
+                  <a href="Personajes.html?id=${character.mal_id}">
                   <img src="${character.images.jpg.image_url}" alt="" />
                   <p class="Nombre">${character.name}</p>
                   </a>

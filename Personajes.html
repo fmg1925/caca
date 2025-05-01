@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet"><!--Da acceso para usar pixelify -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"><!--Da acceso para usar FontAwessome -->
     <link rel="icon" href="img/kitsune.png" type="image/png"><!--Declara el icono de la pagina-->
-    <link rel="stylesheet" href="css/Detalles.css"><!--Hace la conexion con el style-->
+    <link rel="stylesheet" href="css/Personajes.css"><!--Hace la conexion con el style-->
     <meta charset="UTF-8">
     <title>KiwiMangas</title><!--Titulo de la pagina-->
 </head>
@@ -69,62 +69,28 @@
             <div class="Busqueda">
                 <input type="search" name="peo" id="buscar" placeholder="Busca tu manga Favorito" onchange="buscarMangas()">
             </div>
-            
-            <!-- Sección de detalles del manga -->
             <section class="Detalles">
-                <div class="imagenManga">
+                <div class="imagenPersonaje">
                 </div>
-                <div class="detallesManga">
-                    <h3>Nombre del Manga</h3>
-                    <hr>
-                    <p><strong>Títulos alternativos:</strong> <span id="titulosAlternativos"></span></p>
-                    <hr>
-                    <h4>Información</h4>
-                    <p><strong>tipo:</strong> manga</p>
-                    <p><strong>Categoria:</strong> shounen</p><!-- en la api es demographics, quiero cambiar el titulo -->
-                    <p><strong>Género:</strong> Acción, Aventura</p>
-                    <p><strong>Autor:</strong> Nombre del autor</p>
-                    <p><strong>Capítulos:</strong> 100</p>
-                    <p><strong>volumenes:</strong> 27</p>
-                    <p><strong>Estado:</strong> En emisión</p>
-                    <p><strong>Fecha de estreno:</strong> 2023-04-10</p>
-                    <hr>
+                <div class="detallesPersonaje">
                 </div>
-                    <div class="estadisticas">
-                    <h4>Estadísticas</h4>
-                    
-                        <p><strong>Puntuación:</strong> 8.5/10</p>
-                        <p><strong>Volúmenes:</strong> 20</p>
-                        <p><strong>Clasificación:</strong> PG-13</p>
-                        <hr>
-                    </div>
-                
+                <div class="aparicionesAnime">
+                </div>
+                <div class="aparicionesManga">
+                </div>
+                <div class="estadisticas">
+                </div>
             </section>
     
             <!-- Información adicional -->
-            <section class="informacionManga">
-                <div id="ranking">
-                    <h4>Ranking</h4>
+            <section class="informacionPersonaje">
+                <div id="info">
+                    <h4>Info</h4>
                     <hr>
                    <!-- en la api es ranking -->
                 </div>
-                <div id="sinopsis">
-                    <h4>Sinopsis</h4>
-                    <hr>
-                    <!-- en la api es sinopsis -->
-                </div>
-                <div id="relacionados">
-                    <h4>Relacionados</h4>
-                    <hr>
-                    <!-- en la api es relations pondremos todos los datos -->
-                </div>
-                <div id="personajes">
-                    <h4>Personajes</h4>
-                    <hr>
-                     <!-- en la api es characters -->
-                </div>
-                <div id="foro">
-                    <h4>Foro</h4>
+                <div id="voz">
+                    <h4>Actor de voz</h4>
                     <hr>
                     <!-- en la api es sinopsis -->
                 </div>
@@ -182,7 +148,7 @@
             </div><!--Fin del Contenedor Columna-->
         </div><!--Fin del ContenedorContacto-->
     </footer><!--Fin del Pie de pagina-->
-    <script src="js/Detalles.js"></script>
+    <script src="js/Personajes.js"></script>
 </body><!--Fin del cuerpo de pagina-->
 </html>
 
