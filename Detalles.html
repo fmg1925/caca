@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet"><!--Da acceso para usar pixelify -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"><!--Da acceso para usar FontAwessome -->
     <link rel="icon" href="img/kitsune.png" type="image/png"><!--Declara el icono de la pagina-->
-    <link rel="stylesheet" href="css/Categorias.css"><!--Hace la conexion con el style-->
+    <link rel="stylesheet" href="css/Detalles.css"><!--Hace la conexion con el style-->
     <meta charset="UTF-8">
     <title>KiwiMangas</title><!--Titulo de la pagina-->
 </head>
@@ -73,8 +73,6 @@
             <!-- Sección de detalles del manga -->
             <section class="Detalles">
                 <div class="imagenManga">
-                    <!-- Aquí va la imagen del manga -->
-                    <img src="url_de_imagen" alt="Portada del manga Nombre del Manga">
                 </div>
                 <div class="detallesManga">
                     <h3>Nombre del Manga</h3>
@@ -83,6 +81,7 @@
                     <hr>
                     <h4>Información</h4>
                     <p><strong>tipo:</strong> manga</p>
+                    <p><strong>Categoria:</strong> shounen</p><!-- en la api es demographics, quiero cambiar el titulo -->
                     <p><strong>Género:</strong> Acción, Aventura</p>
                     <p><strong>Autor:</strong> Nombre del autor</p>
                     <p><strong>Capítulos:</strong> 100</p>
@@ -90,6 +89,7 @@
                     <p><strong>Estado:</strong> En emisión</p>
                     <p><strong>Fecha de estreno:</strong> 2023-04-10</p>
                     <hr>
+                </div>
                     <div class="estadisticas">
                     <h4>Estadísticas</h4>
                     
@@ -98,7 +98,7 @@
                         <p><strong>Clasificación:</strong> PG-13</p>
                         <hr>
                     </div>
-                </div>
+                
             </section>
     
             <!-- Información adicional -->
@@ -106,38 +106,31 @@
                 <div id="ranking">
                     <h4>Ranking</h4>
                     <hr>
-                    <!-- Aquí se llenará dinámicamente con JS -->
+                   <!-- en la api es ranking -->
                 </div>
                 <div id="sinopsis">
                     <h4>Sinopsis</h4>
                     <hr>
-                    <!-- Aquí se llenará dinámicamente con JS -->
+                    <!-- en la api es sinopsis -->
                 </div>
                 <div id="relacionados">
                     <h4>Relacionados</h4>
                     <hr>
-                    <!-- Aquí se llenará dinámicamente con JS -->
+                    <!-- en la api es relations pondremos todos los datos -->
                 </div>
                 <div id="personajes">
                     <h4>Personajes</h4>
                     <hr>
-                    <!-- Aquí se llenará dinámicamente con JS -->
+                     <!-- en la api es characters -->
                 </div>
                 <div id="foro">
                     <h4>Foro</h4>
                     <hr>
-                    <!-- Aquí se llenará dinámicamente con JS -->
+                    <!-- en la api es sinopsis -->
                 </div>
             </section>
         </div>
     </main><!-- Fin Sección Principal -->
-    
-    
-    
-    
-    
-    
-   
     <!--Pie de pagina-->
     <footer>
         <!--ContenedorContacto-->
@@ -189,7 +182,7 @@
             </div><!--Fin del Contenedor Columna-->
         </div><!--Fin del ContenedorContacto-->
     </footer><!--Fin del Pie de pagina-->
-    <script src="js/Categorias.js"></script>
+    <script src="js/Detalles.js"></script>
 </body><!--Fin del cuerpo de pagina-->
 </html>
 

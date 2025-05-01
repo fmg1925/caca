@@ -22,7 +22,7 @@
                             const Popular = document.createElement('div')
                             Popular.classList.add('Popular')
                             Popular.innerHTML = `
-                                <a href="${manga.url}" target="_blank">
+                                <a href="Detalles.html?id=${manga.mal_id}">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                                     <p title="${manga.title}">
                                     ${manga.title.length > 100 ? manga.title.slice(0, 100) + '...' : manga.title}
@@ -47,7 +47,7 @@
                             const Popular = document.createElement('div')
                             Popular.classList.add('Popular')
                             Popular.innerHTML = `
-                                <a href="${manga.url}" target="_blank">
+                                <a href="Detalles.html?id=${manga.mal_id}">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                                     <p title="${manga.title}">
                                     ${manga.title.length > 100 ? manga.title.slice(0, 100) + '...' : manga.title}
@@ -70,7 +70,7 @@
                             const Popular = document.createElement('div')
                             Popular.classList.add('Popular')
                             Popular.innerHTML = `
-                                <a href="${manga.url}" target="_blank">
+                                <a href="Detalles.html?id=${manga.mal_id}">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                                     <p title="${manga.title}">
                                     ${manga.title.length > 100 ? manga.title.slice(0, 100) + '...' : manga.title}
@@ -161,7 +161,7 @@
                             const Popular = document.createElement('div')
                             Popular.classList.add('Popular')
                             Popular.innerHTML = `
-                                <a href="${manga.url}" target="_blank">
+                                <a href="Detalles.html?id=${manga.mal_id}">
                                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                                     <p title="${manga.title}">
                                     ${manga.title.length > 100 ? manga.title.slice(0, 100) + '...' : manga.title}
