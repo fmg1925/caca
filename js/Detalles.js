@@ -22,7 +22,7 @@ if (idManga) {
             const fechaFin = manga.published?.to ? new Date(manga.published.to).toLocaleDateString() : 'hasta hoy';
             let sinopsisLimpia = manga.synopsis.replace(/\[Written by MAL Rewrite\]/, '');
             let sinopsisFormateada = sinopsisLimpia
-            .split('\n\n') // separamos por saltos dobles de línea
+            .split('\n\n')
             .map(parrafo => `<p>${parrafo.trim()}</p>`)
             .join('');
 
@@ -58,7 +58,7 @@ if (idManga) {
             <p><strong>Ranking:</strong> #${manga.rank || 'Desconocida'}</p>
             <p><strong>Rankig usuarios:</strong> #${manga.popularity || 'Desconocida'}</p>
             <p><strong>Favorito de:</strong> ${manga.favorites || 'Desconocida'}</p>
-            
+            <hr>
             `;
             ranking.innerHTML =
             `
@@ -100,22 +100,56 @@ if (idManga) {
                     <p>${personaje.character.name}</p>
                     <p>Rol: ${personaje.role}</p>
                 </a>
+                <hr>
                 `;
                 personajes.appendChild(divPersonaje);
               });
             });
-            foro.innerHTML =
-            `
-            <hr>
-            <strong>Puntuacion</strong> 
-            <p>${manga.score || 'Desconocida'} (reseñado por <strong>${manga.scored_by || 'Desconocida'}</strong> usuarios)</p>
-            <p><strong>Ranking:</strong> ${manga.rank || 'Desconocida'}</p>
-            <p><strong>Rankig Popular:</strong> ${manga.popularity || 'Desconocida'}</p>
-            <p><strong>Favorito de:</strong> ${manga.favorites || 'Desconocida'}</p>
-            <hr>
-            `;
-
+            fetch(`https://api.jikan.moe/v4/manga/${manga.mal_id}/reviews`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.data && data.data.length > 0) {
+                    const reseñas = data.data.slice(0, 3); // Limita a 3 reseñas
+                    foro.innerHTML = `
+                        <strong>Reseñas</strong>
+                        <ul>
+                            ${reseñas.map(review => {
+                                let reseñaFormateada = review.review
+                                    .split('\n')
+                                    .map(parrafo => `<p>${parrafo.trim()}</p>`)
+                                    .join('');
+                                return `
+                                    <li>
+                                        <p><strong>Por:</strong> ${review.user.username} | <em>${review.tags.join(', ')}</em></p>
+                                        ${reseñaFormateada}
+                                        <hr>
+                                    </li>
+                                `;
+                            }).join('')}
+                        </ul>
+                    `;
+                } else {
+                    foro.innerHTML = `
+                        <strong>Reseñas</strong>
+                        <p>No hay reseñas disponibles.</p>
+                        <hr>
+                    `;
+                }
+            })
+            .catch(error => {
+                foro.innerHTML = `
+                    <strong>Reseñas</strong>
+                    <p>Error al cargar las reseñas.</p>
+                    <hr>
+                `;
+                console.error('Error al obtener las reseñas del manga:', error);
+            });
+        
             imagenManga.appendChild(img);
         })
         .catch(error => console.error('Error al obtener los datos del manga:', error));
 }
+if (!parametros.has("id")) {
+       
+    window.location.href = window.location.pathname + "?id=1";
+  }
