@@ -250,6 +250,7 @@ body
     width: 225px;
     height: 337px; 
     border: black 5px solid;
+    margin: 5px;
   
 }
 .detallesManga h4
@@ -338,7 +339,8 @@ body
     display: block;
     text-align: left;
 }
-#personajes {
+#personajes 
+{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 20px;
@@ -346,7 +348,8 @@ body
     background-color: #fafafa;
 }
 
-#personajes div {
+#personajes div 
+{
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -355,26 +358,30 @@ body
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-#personajes div:hover {
+#personajes div:hover 
+{
     transform: scale(1.2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#personajes img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
+#personajes img 
+{
+    width: 120px;
+    height: 120px;
+    object-fit:cover;
+    border-radius: 25px;
     margin-bottom: 10px;
 }
 
-#personajes p {
+#personajes p 
+{
     margin: 5px 0;
-    font-size: 14px;
+    font-size: 15px;
     color: #333;
 }
 
-#personajes a {
+#personajes a 
+{
     text-decoration: none;
     color: inherit;
 }
