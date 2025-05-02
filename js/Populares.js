@@ -20,7 +20,7 @@
                     <a href="Detalles.html?id=${manga.mal_id}">
                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                     <p title="${manga.title}">
-                      ${manga.title.length > 50 ? manga.title.slice(0, 50) + '...' : manga.title}
+                      ${manga.title.length > 50 ? manga.title.slice(0, 35) + '...' : manga.title}
                     </p>
                     </a>
 
