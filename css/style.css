@@ -277,7 +277,7 @@ body {
     display: flex;/* Declara el display como flex*/
     background-color: rgb(133, 2, 240);/* Declara el color de fondo*/
     margin: 0 auto;/* Declara el margen vertical y horizontal*/
-    width: 856px;/* Declara el ancho del div*/
+    width: 100%;/* Declara el ancho del div*/
     
 }
 .Container p
@@ -292,12 +292,15 @@ body {
 {
     display: flex;
     overflow-x: auto;
+    
     gap: 8px;
     justify-content: flex-start;
     margin: 0 auto;
     width: 856px;
     box-sizing: border-box;
     padding: 0 10px;
+    
+    
 }
   
 .Popular 
@@ -310,6 +313,7 @@ body {
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     height: 260px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .Popular img 
@@ -350,6 +354,11 @@ body {
     width: fit-content;
     
 }
+.Popular:hover {
+    
+    border: black solid 2px;
+    
+  }
 /* Style del footer*/
 footer
 {
@@ -474,5 +483,12 @@ footer
         font-size: 14px;
         
       }
+         .Busqueda input
+    {
+        
+        font-size: 22px;
+        
+        
+    }
     
 }

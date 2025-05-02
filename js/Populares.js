@@ -6,7 +6,7 @@
       function cargarPopularesManga(page) {
         ListaPopulares.innerHTML += '<p id="cargando">Cargando...</p>';
   
-        fetch(`https://api.jikan.moe/v4/top/manga?page=${page}&limit=12`)
+        fetch(`https://api.jikan.moe/v4/top/manga?page=${page}&limit=25`)
           .then(response => response.json())
           .then(data => {
             document.getElementById('cargando')?.remove();
@@ -19,7 +19,9 @@
                 Popular.innerHTML = `
                     <a href="Detalles.html?id=${manga.mal_id}">
                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
-                    <p>${manga.title}</p>
+                    <p title="${manga.title}">
+                      ${manga.title.length > 50 ? manga.title.slice(0, 50) + '...' : manga.title}
+                    </p>
                     </a>
 
                 `;
@@ -41,7 +43,7 @@
     function cargarPersonajes(page) {
       PopularesPersonaje.innerHTML += '<p id="cargandos">Cargando...</p>';
 
-      fetch(`https://api.jikan.moe/v4/top/characters?page=${page}&limit=12`)
+      fetch(`https://api.jikan.moe/v4/top/characters?page=${page}&limit=25`)
         .then(response => response.json())
         .then(data => {
           document.getElementById('cargandos')?.remove();
@@ -78,3 +80,28 @@
         window.location.href = `Categorias.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }
+let scrollContainers = document.querySelectorAll('.ListaPopulares');
+
+scrollContainers.forEach((container) => {
+  let scrollTimer;
+
+  function autoScroll() {
+   
+    if (container.scrollLeft + container.offsetWidth >= container.scrollWidth) {
+      container.scrollLeft = 0; 
+    } else {
+      container.scrollLeft += 1; 
+    }
+  }
+
+  
+  scrollTimer = setInterval(autoScroll, 20);
+
+ 
+  container.addEventListener('mouseenter', () => clearInterval(scrollTimer));
+
+ 
+  container.addEventListener('mouseleave', () => {
+    scrollTimer = setInterval(autoScroll, 20);
+  });
+});
