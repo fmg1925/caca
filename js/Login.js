@@ -30,3 +30,41 @@ function addToCart(productName, price) {
     currentTotal += price;
     totalPrice.textContent = currentTotal.toFixed(2);
 }
+
+// Enviar el formulario de login al servidor PHP
+document.getElementById('formLogin').addEventListener('submit', function(e) {
+    e.preventDefault(); // Evitar que recargue la página
+
+    const correo = document.getElementById('correo').value;
+    const clave = document.getElementById('clave').value;
+    const mensajeLogin = document.getElementById('mensajeLogin');
+
+    fetch('php/verificar_login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `correo=${encodeURIComponent(correo)}&clave=${encodeURIComponent(clave)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            mensajeLogin.style.color = 'green';
+            mensajeLogin.textContent = data.message;
+
+            // Ocultar login luego de iniciar sesión exitosamente
+            setTimeout(() => {
+                document.getElementById('login-container').classList.add('hidden');
+                mensajeLogin.textContent = '';
+            }, 1500);
+        } else {
+            mensajeLogin.style.color = 'red';
+            mensajeLogin.textContent = data.message;
+        }
+    })
+    .catch(error => {
+        console.error('Error al enviar login:', error);
+        mensajeLogin.style.color = 'red';
+        mensajeLogin.textContent = 'Error al conectar con el servidor.';
+    });
+});
