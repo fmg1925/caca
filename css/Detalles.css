@@ -206,7 +206,7 @@ body
 .Grid
 {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 7fr;
     grid-template-rows: auto 1fr;
     
        
@@ -231,12 +231,152 @@ body
 .Detalles
 {
     grid-column: 1;
-    padding: 10px;
+    padding: 10px 0;
     border: 1px black solid;
+    background-color: rgba(255, 232, 251); /* Declara el color del fondo*/
 }
 .informacionPersonaje
 {
     grid-column: 2;
+}
+.imagenManga
+{
+    width: 100%; 
+    margin: 0 auto;
+    
+}
+.imagenManga img
+{
+    width: 225px;
+    height: 337px; 
+    border: black 5px solid;
+  
+}
+.detallesManga h4
+{
+    font-size: 18px;
+}
+.detallesManga ul
+{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+.Info    
+{
+    display: flex;
+    
+    padding: 5px 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.Info strong
+{
+    min-width: 90px;
+    text-align: left;
+}
+.Info span   
+{
+    flex: 1;
+    text-align: left;
+    
+}
+.peo
+{
+    text-decoration-line: underline;
+}
+.EstadisticasContainer 
+{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 0 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+.informacionManga
+{
+    margin: 0 10px;
+}
+.EstadisticaColumna 
+{
+    flex: 1;
+    text-align: center;
+    padding: 0 10px;
+    border-left: 3px solid #ccc;
+}
+
+.EstadisticaColumna:first-child
+{
+    border-left: none;
+}
+#sinopsis h4
+{
+    margin: 10px auto;
+}
+#relacionados h4
+{
+    margin: 10px auto;
+}
+.relacionTipo
+{
+    background-color: #f9f9f9; /* Fondo suave */
+    padding: 10px; /* Relleno para separar del borde */
+    border-radius: 5px; /* Bordes redondeados */
+}
+.relacionTipo strong
+{
+    display: block;
+    text-align: left;
+    text-decoration: underline;
+}
+.relacionTipo ul
+{
+    display: block;
+    text-align: left;
+}
+#personajes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+#personajes div {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#personajes div:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#personajes img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+#personajes p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+#personajes a {
+    text-decoration: none;
+    color: inherit;
 }
 /* Style del footer*/
 footer
@@ -300,5 +440,13 @@ footer
     .Busqueda input
     {
         font-size: 22px;
+    }
+    #ranking {
+        flex-direction: column; /* En pantallas pequeñas, pone los elementos en una columna */
+        gap: 5px;
+    }
+
+    #ranking .estadistica {
+        text-align: left; /* Alineación para pantallas pequeñas */
     }
 }

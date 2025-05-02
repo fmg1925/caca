@@ -37,58 +37,93 @@ if (idManga) {
             `
             <h4>${manga.title}</h4>
             <hr>
-            <h4>Títulos alternativos:</h4>
+            <h4>Títulos alternativos</h4>
             <ul>
-            <li><p>${manga.title_english || ''}</p></li>
-            <li><p>${manga.title_japanese || ''}</p></li>
+            ${manga.titles
+                .filter(titulo => titulo.type !== "Default")
+                .map(titulo => `
+                <li><p class="Info"><strong>${titulo.type}:</strong><span> ${titulo.title}</span></p></li>
+                `).join('')}
             </ul>
             <hr>
             <h4>Información</h4>
-            <p><strong>Tipo:</strong> ${manga.type}</p>
-            ${manga.demographics?.length > 0 ? `<p><strong>Categoria:</strong> ${manga.demographics.map(categ => categ.name).join(', ')}</p>` : ''}
-            ${manga.genres?.length > 0 ?`<p><strong>Genero/s:</strong>  ${manga.genres.map(gen => gen.name).join(', ')}</p>` : ''}
-            ${manga.themes?.length > 0 ?`<p><strong>Tema/s:</strong>  ${manga.themes.map(tem => tem.name).join(', ')}</p>` : ''}
-            ${manga.authors?.length > 0 ?`<p><strong>Autor:</strong>  ${manga.authors.map(autor => autor.name).join(', ')}</p>`: ''}
-            <p><strong>Capítulos:</strong> ${manga.chapters || 'N/A'}</p>
-            <p><strong>Volumenes:</strong> ${manga.volumes || 'N/A'}</p>
-            <p><strong>Estado:</strong> ${manga.status || 'N/A'}</p>
-            <p><strong>Editorial:</strong> ${(manga.serializations?.length > 0 ? manga.serializations.map(peo => peo.name).join(', ') : 'N/A')}</p>
-            <p><strong>Fecha de publicación:</strong> ${fechaInicio} - ${fechaFin}</p>
+            <p class="Info"><strong>Tipo:</strong><span> ${manga.type}</span></p>
+            ${manga.demographics?.length > 0 ? `<p class="Info"><strong>Categoria:</strong> <span>${manga.demographics.map(categ => categ.name).join(', ')}</span></p>` : ''}
+            ${manga.genres?.length > 0 ?`<p class="Info"><strong>Genero/s:</strong> <span> ${manga.genres.map(gen => gen.name).join(', ')}</span></p>` : ''}
+            ${manga.themes?.length > 0 ?`<p class="Info"><strong>Tema/s:</strong>  <span>${manga.themes.map(tem => tem.name).join(', ')}</span></p>` : ''}
+            ${manga.authors?.length > 0 ?`<p class="Info"><strong>Autor:</strong> <span> ${manga.authors.map(autor => autor.name).join(', ')}</span></p>`: ''}
+            <p class="Info"><strong>Capítulos:</strong><span> ${manga.chapters || 'N/A'}</span></p>
+            <p class="Info"><strong>Volumenes:</strong> <span>${manga.volumes || 'N/A'}</span></p>
+            <p class="Info"><strong>Estado:</strong> <span>${manga.status || 'N/A'}</span></p>
+            <p class="Info"><strong>Editorial:</strong> <span>${(manga.serializations?.length > 0 ? manga.serializations.map(peo => peo.name).join(', ') : 'N/A')}</span></p>
+            <p class="Info"><strong>Fecha de publicación:</strong> <span>${fechaInicio} - ${fechaFin}</span></p>
             <hr>
             `;
             estadisticas.innerHTML = `
-            ${manga.score ? `<p><strong>Puntuación:</strong> ${manga.score} (reseñado por <strong>${manga.scored_by}</strong> usuarios)</p>` : ''}
-            ${manga.rank ? `<p><strong>Ranking:</strong> #${manga.rank}</p>` : ''}
-            ${manga.popularity ? `<p><strong>Ranking usuarios:</strong> #${manga.popularity}</p>` : ''}
-            ${manga.favorites ? `<p><strong>Favorito de:</strong> ${manga.favorites}</p>` : ''}
+            ${manga.score ? `<p class="Info"><strong>Puntuación:</strong><span> ${manga.score} (reseñado por <strong class ="peo">${manga.scored_by}</strong> usuarios)</span></p>` : ''}
+            ${manga.rank ? `<p class="Info"><strong>Ranking:</strong><span> #${manga.rank}</span></p>` : ''}
+            ${manga.popularity ? `<p class="Info"><strong>Ranking usuarios:</strong><span> #${manga.popularity}</span></p>` : ''}
+            ${manga.favorites ? `<p class="Info"><strong>Favorito de:</strong><span> ${manga.favorites}</span></p>` : ''}
             ${(manga.score || manga.rank || manga.popularity || manga.favorites) ? '<hr>' : ''}
             `;
             ranking.innerHTML =
             `
-            ${manga.score ? `<p><strong>Puntuación:</strong> ${manga.score} (reseñado por <strong>${manga.scored_by}</strong> usuarios)</p>` : ''}
-            ${manga.rank ? `<p><strong>Ranking:</strong> #${manga.rank}</p>` : ''}
-            ${manga.popularity ? `<p><strong>Ranking usuarios:</strong> #${manga.popularity}</p>` : ''}
-            ${manga.favorites ? `<p><strong>Favorito de:</strong> ${manga.favorites}</p>` : ''}
-            ${(manga.score || manga.rank || manga.popularity || manga.favorites) ? '<hr>' : ''}
+            <div class="EstadisticasContainer">
+                ${manga.score ? `
+                <div class="EstadisticaColumna">
+                <h4>Puntuación</h4>
+                <p>${manga.score} (reseñado por <strong>${manga.scored_by}</strong> usuarios)</p>
+                </div>` : ''}
+
+                ${manga.rank ? `
+                <div class="EstadisticaColumna">
+                <h4>Ranking</h4>
+                <p>#${manga.rank}</p>
+                </div>` : ''}
+
+                ${manga.popularity ? `
+                <div class="EstadisticaColumna">
+                <h4>Ranking usuarios</h4>
+                <p>#${manga.popularity}</p>
+                </div>` : ''}
+
+                ${manga.favorites ? `
+                <div class="EstadisticaColumna">
+                <h4>Favorito de</h4>
+                <p>${manga.favorites}</p>
+                </div>` : ''}
+            </div>
             `;
             sinopsis.innerHTML =
             `
-            <strong>Sinopsis</strong> 
+            
+            <h4>Sinopsis</h4> 
             <p>${sinopsisFormateada || 'Desconocida'}</p>
             <hr>
             `;
             relacionados.innerHTML =
             relaciones?.length > 0 ? 
             `
-                <strong>Relacionado</strong> 
-                <p>
+                <h4>Relacionado</h4> 
+                <div class="relaciones-container">
                     ${relaciones
-                        .map(rel => `${rel.relation}: ${rel.entry.map(e => e.name).join(', ')}`)
-                        .join('<br>')}
-                </p>
+                        .map(rel => `
+                            <div class="relacionTipo">
+                                <strong>${rel.relation}:</strong> 
+                                <div class="relacionNombre">
+                                <ul>
+                                    ${rel.entry
+                                        .map(e => `<li><span>${e.name}</span></li>`)
+                                        .join('<br>')}
+                                        </ul>
+                                </div>
+                                
+                            </div>
+                        `)
+                        .join('')}
+                </div>
                 <hr>
-            ` : ''
-            ;
+            ` : '';
 
             fetch(`https://api.jikan.moe/v4/manga/${manga.mal_id}/characters`)
             .then(res => res.json())
@@ -102,7 +137,7 @@ if (idManga) {
                     <p>${personaje.character.name}</p>
                     <p>Rol: ${personaje.role}</p>
                 </a>
-                <hr>
+                
                 `;
                 personajes.appendChild(divPersonaje);
               });
@@ -134,7 +169,7 @@ if (idManga) {
                     foro.innerHTML = `
                         <strong>Reseñas</strong>
                         <p>No hay reseñas disponibles.</p>
-                        <hr>
+                        
                     `;
                 }
             })

@@ -35,10 +35,6 @@
             ListaPopulares.innerHTML += '<p>Error al cargar los mangas populares.</p>';
           });
       }
-      // Cargar la primera página al iniciar
-  
-
-
     //Funcion cargar personajes populares
     function cargarPersonajes(page) {
       PopularesPersonaje.innerHTML += '<p id="cargandos">Cargando...</p>';
