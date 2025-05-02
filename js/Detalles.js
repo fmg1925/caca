@@ -148,7 +148,7 @@ if (idManga) {
                 if (data.data && data.data.length > 0) {
                     const reseñas = data.data.slice(0, 3); // Limita a 3 reseñas
                     foro.innerHTML = `
-                        <strong>Reseñas</strong>
+                        <h4>Reseñas</h4>
                         <ul>
                             ${reseñas.map(review => {
                                 let reseñaFormateada = review.review

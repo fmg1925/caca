@@ -385,6 +385,51 @@ body
     text-decoration: none;
     color: inherit;
 }
+#foro 
+{
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 15px 0;
+}
+#foro  h4 
+{
+    display: block;
+    border-bottom: 2px solid #ccc;
+    font-size: 18px;
+    margin: 5px;
+    padding: 5px;
+    
+}
+#foro ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#foro li {
+    margin: 15px 0;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#foro li p:first-of-type 
+{
+    margin: 10px 0;
+    font-size: 14px;
+    color: #666;
+}
+#foro li em {
+    font-style: italic;
+    font-size: 12px;
+    color: #999;
+}
+
+
 /* Style del footer*/
 footer
 {
@@ -456,4 +501,86 @@ footer
     #ranking .estadistica {
         text-align: left; /* Alineación para pantallas pequeñas */
     }
+    #personajes 
+    {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background-color: #fafafa;
+    }
+
+    #personajes div 
+    {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        text-align: center;
+        padding: 10px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    #personajes div:hover 
+    {
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #personajes img 
+    {
+        width: 180px;
+        height: 180px;
+        object-fit:cover;
+        border-radius: 25px;
+        margin-bottom: 10px;
+    }
+
+    #personajes p 
+    {
+        margin: 5px 0;
+        font-size: 18px;
+        color: #333;
+    }
+
+    #personajes a 
+    {
+        text-decoration: none;
+        color: inherit;
+    }
+    .Info    
+    {
+        font-size: 18px;
+    }
+    #foro  h4 
+    {
+        font-size: 22px;
+    }
+    #foro ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #foro li {
+        margin: 15px 0;
+        padding: 10px 15px;
+        background-color: #fff;
+        border-radius: 6px;
+        border: 1px solid #eee;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    #foro li p:first-of-type 
+    {
+        margin: 10px 0;
+        font-size: 14px;
+        color: #666;
+    }
+    #foro li em {
+        font-style: italic;
+        font-size: 12px;
+        color: #999;
+    }
+
+
 }
