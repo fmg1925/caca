@@ -253,15 +253,50 @@ body
     margin: 5px;
   
 }
-.aparicionesAnime h4
-{
+.aparicionesAnime h4 {
     font-size: 18px;
+    text-align: center;  /* Centra el título */
 }
-.aparicionesAnime ul
-{
-    list-style: none;
+.listaAnime {
     margin: 0 auto;
     padding: 0;
+}
+
+.itemAnime {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    margin: 10px; 
+    text-align: center;
+}
+
+.itemAnime img {
+    width: 110px;
+    height: 160px;
+    object-fit: cover; 
+}
+
+.itemAnime span {
+    font-size: 16px;  /* Ajusta el tamaño de la fuente */
+    margin: 0 auto;
+}
+.itemManga {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    margin: 10px; 
+    text-align: center;
+}
+
+.itemManga img {
+    width: 110px;
+    height: 160px;
+    object-fit: cover; 
+}
+
+.itemManga span {
+    font-size: 16px;  /* Ajusta el tamaño de la fuente */
+    margin: 0 auto;
 }
 #voz 
 {
@@ -309,6 +344,71 @@ body
     text-decoration: none;
     color: inherit;
 }
+#info .informacionContainer 
+{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px auto;
+}
+
+/* Columna de Atributos */
+#info .atributosColumna 
+{
+    flex: 1; /* Ocupa el 50% del espacio */
+    padding: 0 10px;
+}
+
+#info .atributosColumna h4 
+{
+    margin: 15px auto;
+}
+#info .biografiaColumna h4 
+{
+    margin: 15px auto;
+}
+/* Columna de Biografía */
+#info .biografiaColumna {
+    flex: 2; /* Ocupa el doble de espacio que los atributos */
+    padding: 0 10px;
+}
+
+/* Estilo para la lista de atributos */
+#info .atributosColumna ul 
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+}
+#info .atributosColumna li {
+    display: flex;
+    text-align: left;
+    min-width: 60px
+}
+#info .atributosColumna li strong {
+    font-weight: bold;
+    text-align: left;
+    
+}
+#info .atributosColumna li span {
+    
+    text-align: center;
+    margin: 0 auto;
+}
+/* Estilo para los párrafos de la biografía */
+#info .biografiaColumna p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Separador entre la biografía y los atributos */
+
 /* Style del footer*/
 footer
 {
