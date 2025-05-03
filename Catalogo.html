@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet"><!--Da acceso para usar pixelify -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"><!--Da acceso para usar FontAwessome -->
     <link rel="icon" href="img/kitsune.png" type="image/png"><!--Declara el icono de la pagina-->
-    <link rel="stylesheet" href="css/Categorias.css"><!--Hace la conexion con el style-->
+    <link rel="stylesheet" href="css/Catalogo.css"><!--Hace la conexion con el style-->
     <meta charset="UTF-8">
     <title>KiwiMangas</title><!--Titulo de la pagina-->
 </head>
@@ -64,16 +64,51 @@
     <!--Seccion Principal-->
     <main>
        <div class="Grid">
-        <div class="Busqueda">
-            <input type="search" id="buscarTitulo" placeholder="Busca tu manga favorito" onchange="redirigirBusqueda()">
-          </div>
-            <section class="contenedor-generos">
-                <h2>Explora por Géneros</h2>
-                <div class="grid-generos" id="lista-generos">
-                  <!-- Los géneros se insertarán aquí con JavaScript -->
-                </div>
-              </section>
-
+            <div class="Busqueda">
+                <input type="search" name="peo" id="buscar" placeholder="Busca tu manga Favorito" onchange="buscarMangas()">
+                
+            </div>
+            <div class="Filtros">
+                <form id="form-filtros">
+                    <fieldset class="filtro-categoria" id="filtro-tipo">
+                      <legend>Tipo</legend>
+                      <label><input type="checkbox" name="tipo" value="manga"> Manga</label><br>
+                      <label><input type="checkbox" name="tipo" value="novel"> Novela</label><br>
+                      <label><input type="checkbox" name="tipo" value="lightnovel"> Light Novel</label><br>
+                      <label><input type="checkbox" name="tipo" value="manhwa"> Manhwa</label><br>
+                      <label><input type="checkbox" name="tipo" value="manhua"> Manhua</label>
+                    </fieldset>
+                </form>
+                <form id="form-filtros">
+                    <fieldset class="filtro-categoria" id="filtro-tipo">
+                      <legend>Tipo</legend>
+                      <label><input type="checkbox" name="tipo" value="manga"> Manga</label><br>
+                      <label><input type="checkbox" name="tipo" value="novel"> Novela</label><br>
+                      <label><input type="checkbox" name="tipo" value="lightnovel"> Light Novel</label><br>
+                      <label><input type="checkbox" name="tipo" value="manhwa"> Manhwa</label><br>
+                      <label><input type="checkbox" name="tipo" value="manhua"> Manhua</label>
+                    </fieldset>
+                </form>
+                <form id="form-filtros">
+                    <fieldset class="filtro-categoria" id="filtro-tipo">
+                      <legend>Tipo</legend>
+                      <label><input type="checkbox" name="tipo" value="manga"> Manga</label><br>
+                      <label><input type="checkbox" name="tipo" value="novel"> Novela</label><br>
+                      <label><input type="checkbox" name="tipo" value="lightnovel"> Light Novel</label><br>
+                      <label><input type="checkbox" name="tipo" value="manhwa"> Manhwa</label><br>
+                      <label><input type="checkbox" name="tipo" value="manhua"> Manhua</label>
+                    </fieldset>
+                </form>
+            </div>
+            
+            <div class="Catalogo">
+               
+            </div>
+            
+            <div class="Paginacion">
+                
+                
+            </div>
        </div>
        
        
@@ -131,7 +166,7 @@
             </div><!--Fin del Contenedor Columna-->
         </div><!--Fin del ContenedorContacto-->
     </footer><!--Fin del Pie de pagina-->
-    <script src="js/Categorias.js"></script>
+    <script src="js/Catalogo.js"></script>
 </body><!--Fin del cuerpo de pagina-->
 </html>
 

@@ -280,12 +280,14 @@ body
     font-size: 16px;  /* Ajusta el tamaño de la fuente */
     margin: 0 auto;
 }
-.itemManga {
+.itemManga a {
     display: flex;
     flex-direction: row;
     align-items: center;  
     margin: 10px; 
     text-align: center;
+    text-decoration: none;
+    color: black;
 }
 
 .itemManga img {
@@ -297,11 +299,12 @@ body
 .itemManga span {
     font-size: 16px;  /* Ajusta el tamaño de la fuente */
     margin: 0 auto;
+    
 }
 #voz 
 {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     padding: 20px;
     background-color: #fafafa;
@@ -471,5 +474,9 @@ footer
     .Busqueda input
     {
         font-size: 22px;
+    }
+    .estadisticas p
+    {
+        font-size: 18px;
     }
 }

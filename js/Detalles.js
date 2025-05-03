@@ -1,4 +1,4 @@
-//trata de hacer un enlace de las demographics y categoria al catalogo porque seria god uwu
+
 const parametros = new URLSearchParams(window.location.search);
 const idManga = parametros.get('id');
 
@@ -48,9 +48,26 @@ if (idManga) {
             <hr>
             <h4>Información</h4>
             <p class="Info"><strong>Tipo:</strong><span> ${manga.type}</span></p>
-            ${manga.demographics?.length > 0 ? `<p class="Info"><strong>Categoria:</strong> <span>${manga.demographics.map(categ => categ.name).join(', ')}</span></p>` : ''}
-            ${manga.genres?.length > 0 ?`<p class="Info"><strong>Genero/s:</strong> <span> ${manga.genres.map(gen => gen.name).join(', ')}</span></p>` : ''}
-            ${manga.themes?.length > 0 ?`<p class="Info"><strong>Tema/s:</strong>  <span>${manga.themes.map(tem => tem.name).join(', ')}</span></p>` : ''}
+            ${manga.demographics?.length > 0 ? `
+                <p class="Info"><strong>Categoria:</strong> 
+                  <span>
+                    ${manga.demographics.map(categ => `<a href="Catalogo.html?categoria=${categ.mal_id}&type=demographics">${categ.name}</a>`).join(', ')}
+                  </span>
+                </p>` : ''}
+              
+              ${manga.genres?.length > 0 ? `
+                <p class="Info"><strong>Genero/s:</strong> 
+                  <span>
+                    ${manga.genres.map(gen => `<a href="Catalogo.html?categoria=${gen.mal_id}&type=genres">${gen.name}</a>`).join(', ')}
+                  </span>
+                </p>` : ''}
+              
+              ${manga.themes?.length > 0 ? `
+                <p class="Info"><strong>Tema/s:</strong> 
+                  <span>
+                    ${manga.themes.map(tem => `<a href="Catalogo.html?categoria=${tem.mal_id}&type=themes">${tem.name}</a>`).join(', ')}
+                  </span>
+                </p>` : ''}
             ${manga.authors?.length > 0 ?`<p class="Info"><strong>Autor:</strong> <span> ${manga.authors.map(autor => autor.name).join(', ')}</span></p>`: ''}
             <p class="Info"><strong>Capítulos:</strong><span> ${manga.chapters || 'N/A'}</span></p>
             <p class="Info"><strong>Volumenes:</strong> <span>${manga.volumes || 'N/A'}</span></p>
@@ -193,6 +210,6 @@ if (!parametros.has("id")) {
   function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
     if (titulo) {
-        window.location.href = `Categorias.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+        window.location.href = `Catalogo.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }
