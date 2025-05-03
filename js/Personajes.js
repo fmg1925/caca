@@ -48,20 +48,19 @@ if (idPersonaje) {
             <h6>(${Personaje.name_kanji})</h6>
             <hr>
             `;
-            anime.innerHTML =
-            `${Personaje.anime?.length > 0 ? `
-                <h4>Apariciones Anime:</h4>
-                <ul>
-                    ${Personaje.anime.map(m => `
-                        <li>
-                            <img src="${m.anime.images.jpg.image_url}" alt="${m.anime.title}" style="width:50px; vertical-align:middle;">
-                            <span>${m.anime.title}, (${m.role})</span>
-                        </li>
-                    `).join('')}
-                </ul>
-                <hr>
-            ` : ''}
-            `;
+            anime.innerHTML = 
+            Personaje.anime?.length > 0 ? `
+              <h4>Apariciones Anime</h4>
+              <div class="listaAnime">
+                ${Personaje.anime.map(m => `
+                  <div class="itemAnime">
+                    <img src="${m.anime.images.jpg.image_url}" alt="${m.anime.title}" style="width:50px; vertical-align:middle;">
+                    <span>${m.anime.title}, (${m.role})</span>
+                  </div>
+                `).join('')}
+              </div>
+              <hr>
+            ` : '';
             manga.innerHTML =
             `
                 <ul>
@@ -84,26 +83,21 @@ if (idPersonaje) {
             ${biografiaHTML || ''}
             <hr>
         `;
-            voz.innerHTML = 
-            `
-            
-                ${Personaje.voices?.length > 0 ? `
-                <h4>Actores de voz:</h4>
-                <ul>
-                    ${Personaje.voices.map(v => `
-                        <li>
-                            <img src="${v.person.images.jpg.image_url}" alt="${v.person.name}">
-                            
-                                <strong>${v.person.name}</strong><br>
-                                <p>${v.language}</p>
-                            
-                        </li>
-                    `).join('')}
-                </ul>
-                <hr>
-            ` : ''}
-        `;
-
+        if (Personaje.voices?.length > 0) {
+            Personaje.voices.forEach(actor => {
+              const divActor = document.createElement('div');
+              divActor.innerHTML = `
+                
+                  <img src="${actor.person.images.jpg.image_url}" alt="${actor.person.name}" />
+                  <p>${actor.person.name}</p>
+                  <p>Idioma: ${actor.language}</p>
+                
+              `;
+              voz.appendChild(divActor);
+            });
+          } else {
+            voz.innerHTML = '<p>No hay actores de voz disponibles.</p>';
+          }
             imagenPersonaje.appendChild(img);
         })
         .catch(error => console.error('Error al obtener los datos del Personaje:', error));
