@@ -43,73 +43,37 @@
         <ul><!--Lista Principal del menu-->
             <li><a href="PaginaMangaV2.html">INICIO</a></li><!--Enlace a inicio-->
             <li><!--Lista-->
-                <a href="Categorias.html?categoria=populares">CATEGORIAS</a><!--Opcion con submenu-->
+                <a href="Categorias.html">CATEGORIAS</a><!--Opcion con submenu-->
                 <div class="Submenu"><!--Submenu-->
                     <ul><!--Lista de Categorias-->
-                        <a href="Categorias.html?categoria=populares"><li>Populares ✨</li></a><!--Opcion Categorias-->
-                        <a href="Categorias.html?categoria=1"><li>Acción ✨</li></a><!--Opcion Categorias-->
-                        <a href="Categorias.html?categoria=4"><li>Comedia ✨</li></a><!--Opcion Categorias-->
-                        <a href="Categorias.html?categoria=22"><li>Romance ✨</li></a><!--Opcion Categorias-->
-                        <a href="Categorias.html?categoria=2"><li>Aventura ✨</li></a><!--Opcion Categorias-->
-                        <a href="Categorias.html?categoria=62"><li>Isekai ✨</li></a><!--Opcion Categorias-->
-                        <a href="Categorias.html?categoria=Publishing"><li>En emisión ✨</li></a><!--Opcion Categorias-->
-                        <a href="Categorias.html?categoria=Complete"><li>Finalizados ✨</li></a><!--Opcion Categorias-->
+                        <a href="Catalogo.html"><li>Populares ✨</li></a><!--Opcion Categorias-->
+                        <a href="Catalogo.html?categoria=1"><li>Acción ✨</li></a><!--Opcion Categorias-->
+                        <a href="Catalogo.html?categoria=4"><li>Comedia ✨</li></a><!--Opcion Categorias-->
+                        <a href="Catalogo.html?categoria=22"><li>Romance ✨</li></a><!--Opcion Categorias-->
+                        <a href="Catalogo.html?categoria=2"><li>Aventura ✨</li></a><!--Opcion Categorias-->
+                        <a href="Catalogo.html?categoria=62"><li>Isekai ✨</li></a><!--Opcion Categorias-->
+                        <a href="Catalogo.html?categoria=Publishing"><li>En emisión ✨</li></a><!--Opcion Categorias-->
+                        <a href="Catalogo.html?categoria=Complete"><li>Finalizados ✨</li></a><!--Opcion Categorias-->
                     </ul><!--Fin Lista de Categorias-->
                 </div><!--Fin Submenu-->
             </li>
-            <li><a href="#">LO MAS VENDIDO</a></li><!--Enlace a TopSeller-->
-            <li><a href="#">BIBLIOTECA</a></li><!--Enlace a Biblioteca-->
+            <li><a href="Catalogo.html">CATALOGO</a></li><!--Enlace a catalogo-->
             <li><a href="#">AYUDA</a></li><!--Enlace a Ayuda-->
         </ul><!--Fin de la lista principal-->
     </nav><!--Fin De navegacion-->
     <!--Seccion Principal-->
     <main>
        <div class="Grid">
-            <div class="Busqueda">
-                <input type="search" name="peo" id="buscar" placeholder="Busca tu manga Favorito" onchange="buscarMangas()">
-                
-            </div>
-            <div class="Filtros">
-                <form id="form-filtros">
-                    <fieldset class="filtro-categoria" id="filtro-tipo">
-                      <legend>Tipo</legend>
-                      <label><input type="checkbox" name="tipo" value="manga"> Manga</label><br>
-                      <label><input type="checkbox" name="tipo" value="novel"> Novela</label><br>
-                      <label><input type="checkbox" name="tipo" value="lightnovel"> Light Novel</label><br>
-                      <label><input type="checkbox" name="tipo" value="manhwa"> Manhwa</label><br>
-                      <label><input type="checkbox" name="tipo" value="manhua"> Manhua</label>
-                    </fieldset>
-                </form>
-                <form id="form-filtros">
-                    <fieldset class="filtro-categoria" id="filtro-tipo">
-                      <legend>Tipo</legend>
-                      <label><input type="checkbox" name="tipo" value="manga"> Manga</label><br>
-                      <label><input type="checkbox" name="tipo" value="novel"> Novela</label><br>
-                      <label><input type="checkbox" name="tipo" value="lightnovel"> Light Novel</label><br>
-                      <label><input type="checkbox" name="tipo" value="manhwa"> Manhwa</label><br>
-                      <label><input type="checkbox" name="tipo" value="manhua"> Manhua</label>
-                    </fieldset>
-                </form>
-                <form id="form-filtros">
-                    <fieldset class="filtro-categoria" id="filtro-tipo">
-                      <legend>Tipo</legend>
-                      <label><input type="checkbox" name="tipo" value="manga"> Manga</label><br>
-                      <label><input type="checkbox" name="tipo" value="novel"> Novela</label><br>
-                      <label><input type="checkbox" name="tipo" value="lightnovel"> Light Novel</label><br>
-                      <label><input type="checkbox" name="tipo" value="manhwa"> Manhwa</label><br>
-                      <label><input type="checkbox" name="tipo" value="manhua"> Manhua</label>
-                    </fieldset>
-                </form>
-            </div>
-            
-            <div class="Catalogo">
-               
-            </div>
-            
-            <div class="Paginacion">
-                
-                
-            </div>
+        <div class="Busqueda">
+            <input type="search" id="buscarTitulo" placeholder="Busca tu manga favorito" onchange="redirigirBusqueda()">
+          </div>
+            <section class="contenedor-generos">
+                <h2>Explora por Géneros</h2>
+                <div class="grid-generos" id="lista-generos">
+                  <!-- Los géneros se insertarán aquí con JavaScript -->
+                </div>
+              </section>
+
        </div>
        
        
@@ -150,7 +114,7 @@
                         </a><!--Fin Enlace-->
                     </p><!--Fin Parrafo-->
                     <p><!--Parrafo-->
-                        <a href="https://instagram.com/Kiwi_Mangas_UwU" target="_blank" class="social-icon"><!--Enlace-->
+                        <a href="https://www.instagram.com/kiwimangas_/" target="_blank" class="social-icon"><!--Enlace-->
                             <i class="fab fa-instagram"></i> @KiwiMangas<!--Uso del icono-->
                         </a><!--Fin Enlace-->
                     </p><!--Fin Parrafo-->

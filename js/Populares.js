@@ -35,10 +35,6 @@
             ListaPopulares.innerHTML += '<p>Error al cargar los mangas populares.</p>';
           });
       }
-      // Cargar la primera página al iniciar
-  
-
-
     //Funcion cargar personajes populares
     function cargarPersonajes(page) {
       PopularesPersonaje.innerHTML += '<p id="cargandos">Cargando...</p>';
@@ -77,7 +73,7 @@
   function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
     if (titulo) {
-        window.location.href = `Categorias.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+        window.location.href = `Catalogo.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }
 let scrollContainers = document.querySelectorAll('.ListaPopulares');

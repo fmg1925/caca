@@ -26,13 +26,13 @@ if (idPersonaje) {
                 lineas.forEach(linea => {
                     const lineaLimpia = linea.trim();
             
-                    // Ignorar cualquier línea que empiece con "(Source:"
+                    
                     if (lineaLimpia.startsWith('(Source:')) return;
             
                     if (lineaLimpia.includes(':') && !lineaLimpia.startsWith('(')) {
                         const [clave, valor] = lineaLimpia.split(':').map(p => p.trim());
                         if (clave && valor) {
-                            atributosHTML += `<li><strong>${clave}:</strong> ${valor}</li>`;
+                            atributosHTML += `<li><strong>${clave}:</strong> <span>${valor}</span></li>`;
                         }
                     } else if (lineaLimpia) {
                         biografiaHTML += `<p>${lineaLimpia}</p>`;
@@ -48,62 +48,67 @@ if (idPersonaje) {
             <h6>(${Personaje.name_kanji})</h6>
             <hr>
             `;
-            anime.innerHTML =
-            `${Personaje.anime?.length > 0 ? `
-                <h4>Apariciones Anime:</h4>
-                <ul>
-                    ${Personaje.anime.map(m => `
-                        <li>
-                            <img src="${m.anime.images.jpg.image_url}" alt="${m.anime.title}" style="width:50px; vertical-align:middle;">
-                            <span>${m.anime.title}, (${m.role})</span>
-                        </li>
-                    `).join('')}
-                </ul>
-                <hr>
-            ` : ''}
-            `;
+            anime.innerHTML = 
+            Personaje.anime?.length > 0 ? `
+              <h4>Apariciones Anime</h4>
+              <div class="listaAnime">
+                ${Personaje.anime.map(m => `
+                  <div class="itemAnime">
+                    <img src="${m.anime.images.jpg.image_url}" alt="${m.anime.title}">
+                    <span>${m.anime.title}, (${m.role})</span>
+                  </div>
+                `).join('')}
+              </div>
+              <hr>
+            ` : '';
             manga.innerHTML =
-            `
-                <ul>
-                    ${Personaje.manga?.length > 0 ? Personaje.manga.map(m => `
-                        <li>
-                            <img src="${m.manga.images.jpg.image_url}" alt="${m.manga.title}" style="width:50px; vertical-align:middle;">
-                            <span>${m.manga.title}, (${m.role})</p>
-                        </li>
-                    `).join('') : '<li>Desconocida</li>'}
-                </ul>
-                <hr>
-            `;
+            Personaje.manga?.length > 0 ? `
+            <h4>Apariciones Manga</h4>
+            <div class="listaManga">
+              ${Personaje.manga.map(m => `
+                <div class="itemManga">
+                  <a href="Detalles.html?id=${m.manga.mal_id}">
+                  <img src="${m.manga.images.jpg.image_url}" alt="${m.manga.title}">
+                  <span>${m.manga.title}, (${m.role})</span>
+                  </a>
+                </div>
+              `).join('')}
+            </div>
+            <hr>
+            `:'';
             estadisticas.innerHTML =
             `
             <p><strong>Favorito de:</strong> ${Personaje.favorites || 'Desconocida'}</p>
             `;
             info.innerHTML = `
             <h3>Sobre el personaje</h3>
-            ${atributosHTML ? `<ul>${atributosHTML}</ul>` : ''}
-            ${biografiaHTML || ''}
-            <hr>
-        `;
-            voz.innerHTML = 
-            `
+            <div class="informacionContainer">
+                <div class="atributosColumna">
+                    <h4>Atributos</h4>
+                    <ul>${atributosHTML || 'Aun no registrados srry'}</ul>
+                </div>
+                <div class="biografiaColumna">
+                    <h4>Biografía</h4>
+                    ${biografiaHTML || '<p>Aun no registrados srry</p>'}
+                </div>
+            </div>
             
-                ${Personaje.voices?.length > 0 ? `
-                <h4>Actores de voz:</h4>
-                <ul>
-                    ${Personaje.voices.map(v => `
-                        <li>
-                            <img src="${v.person.images.jpg.image_url}" alt="${v.person.name}">
-                            
-                                <strong>${v.person.name}</strong><br>
-                                <p>${v.language}</p>
-                            
-                        </li>
-                    `).join('')}
-                </ul>
-                <hr>
-            ` : ''}
         `;
-
+        if (Personaje.voices?.length > 0) {
+            Personaje.voices.forEach(actor => {
+              const divActor = document.createElement('div');
+              divActor.innerHTML = `
+                
+                  <img src="${actor.person.images.jpg.image_url}" alt="${actor.person.name}" />
+                  <p>${actor.person.name}</p>
+                  <p>Idioma: ${actor.language}</p>
+                
+              `;
+              voz.appendChild(divActor);
+            });
+          } else {
+            voz.innerHTML = '<p>Por el momento no presenta actor de voz</p>';
+          }
             imagenPersonaje.appendChild(img);
         })
         .catch(error => console.error('Error al obtener los datos del Personaje:', error));
@@ -115,6 +120,6 @@ if (!parametros.has("id")) {
     function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
     if (titulo) {
-        window.location.href = `Categorias.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+        window.location.href = `Catalogo.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }
