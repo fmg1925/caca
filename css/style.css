@@ -76,9 +76,10 @@ body {
     background-color: #ff69b4;
     color: white;
     border: none;
-    padding: 8px;
+    padding: 5px;
     border-radius: 6px;
     cursor: pointer;
+    margin-top: 10px;
   }
   
   .login-desplegable:hover .formulario-login {

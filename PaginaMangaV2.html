@@ -20,35 +20,23 @@
         <a href="PaginaMangaV2.html">
             <img src="img/Logo.png" alt="Logo de la página de mangas"><!--Logo-->
         </a>
-    </header><!--Fin del Encabezado-->
-    <!--Login con carrito de compra uwu-->
-    <!-- <div class="formulario-login">
-        <form id="formLogin">
-          <input type="email" name="correo" id="correo" placeholder="Correo" required>
-          <input type="password" name="clave" id="clave" placeholder="Contraseña" required>
-          <button type="submit">Entrar</button>
-          <p id="mensajeLogin" class="mensaje-error"></p>
-        </form>
-      </div>
-          </div>
-        </div>
-        <div class="carrito">
-          <i class="fas fa-shopping-cart"></i>
-          <span class="contador-carrito">(0)</span>
-        </div>
-      </div> -->
-      <div class="iconos-superiores">
+    </header>
+    <div class="iconos-superiores">
         <div class="login-desplegable">
           <i class="fas fa-user"></i> Iniciar sesión
           <div class="formulario-login">
-            <form id="formLogin">
-                <input type="email" name="correo" id="correo" placeholder="Correo" required>
-                <input type="password" name="clave" id="clave" placeholder="Contraseña" required>
-                <button type="submit">Entrar</button>
-                <p id="mensajeLogin" class="mensaje-error"></p>
-              </form>
+            <form id="formLogin" action="login.php" method="POST">
+              <input type="email" name="correo" id="correo" placeholder="Correo" required>
+              <input type="password" name="clave" id="clave" placeholder="Contraseña" required>
+              <button type="submit">Entrar</button>
+            </form>
+
+             <button onclick="location.href='registro.php'">Registrarse</button>
+              <p id="mensajeLogin" class="mensaje-error"></p>
+            </form>
           </div>
         </div>
+      </div>
       
         <div class="carrito">
           <i class="fas fa-shopping-cart"></i>
