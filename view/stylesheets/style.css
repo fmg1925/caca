@@ -238,7 +238,9 @@ input:hover, button:hover {
 }
 .Busqueda 
 {
-    margin: 0 0;/* Declara el margen*/
+    
+    background-color: #f0f0f0; /* Fondo para que se vea mejor */
+    padding: 5px;
     text-align: right;
     
 }
